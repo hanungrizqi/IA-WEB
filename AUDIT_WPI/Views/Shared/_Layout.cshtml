@@ -106,6 +106,9 @@
                                                         <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="#">@Session["Name"].ToString()</a>
                                                     </li>
                                                     <li class="list-inline-item">
+                                                        <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="#">@Session["Role"].ToString()</a>
+                                                    </li>
+                                                    <li class="list-inline-item">
                                                         <a class="link-fx text-dual" href="/login/logout">
                                                             <i class="fa fa-sign-out-alt"></i>
                                                         </a>
@@ -156,12 +159,19 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
                             <div class="px-2 py-3 bg-body-light rounded-top">
+                                @*<h5 class="h6 text-center mb-0">
+                                    @Session["Role"].ToString()
+                                </h5>*@
                                 <h5 class="h6 text-center mb-0">
                                     @Session["Nrp"].ToString() - @Session["Site"].ToString()
                                 </h5>
                             </div>
                             <div class="p-2">
                                 <div class="dropdown-divider"></div>
+                                <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" href="#">
+                                    <span>@Session["Role"].ToString()</span>
+                                    <i class="fa fa-fw fa-book-open-reader opacity-25"></i>
+                                </a>
                                 <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" href="/Login/logout">
                                     <span>Sign Out</span>
                                     <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
@@ -195,7 +205,7 @@
                         Crafted with <i class="fa fa-heart text-danger"></i> by <a class="fw-semibold" href="https://1.envato.market/ydb" target="_blank">pixelcave</a>
                     </div>
                     <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-                        <a class="fw-semibold" href="home/index" target="_blank">Web Page Intranet</a> © <span data-toggle="year-copy" class="js-year-copy-enabled">2023</span>
+                        <a class="fw-semibold" href="#" >Web Page Intranet</a> © <span data-toggle="year-copy" class="js-year-copy-enabled">2023</span>
                     </div>
                 </div>
             </div>

@@ -138,6 +138,7 @@
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
+    <Compile Include="Controllers\WPIController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -3960,6 +3961,7 @@
     <Content Include="Content\assets\media\favicons\favicon-192x192.png" />
     <Content Include="Content\assets\media\favicons\favicon.png" />
     <Content Include="Content\assets\media\photos\1.jpg" />
+    <Content Include="Content\assets\media\photos\background-wpi.jpeg" />
     <Content Include="Content\assets\media\photos\bg_hero_landing.jpg" />
     <Content Include="Content\assets\media\photos\haul.jpg" />
     <Content Include="Content\assets\media\photos\heyy.jpg" />
@@ -4372,6 +4374,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Setting\Users.cshtml" />
     <Content Include="Views\Setting\Menu.cshtml" />
+    <Content Include="Views\WPI\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

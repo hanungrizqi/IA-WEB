@@ -19,7 +19,23 @@ namespace API_AUDIT_WPI.Controllers
         {
             try
             {
-                var data = db.VW_M_JOBSITEs.ToList();
+                var data = db.VW_M_JOBSITEs.OrderBy(a => a.DSTRCT_CODE).ToList();
+
+                return Ok(new { Data = data, Total = data.Count() });
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        [Route("Get_Roled")]
+        public IHttpActionResult Get_Roled()
+        {
+            try
+            {
+                var data = db.TBL_M_ROLEs.ToList();
 
                 return Ok(new { Data = data, Total = data.Count() });
             }

@@ -1,0 +1,100 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <title>Web Page Intranet</title>
+
+    <style>
+        .small-image {
+            width: 150px; /* Ubah ukuran gambar sesuai kebutuhan */
+            height: auto; /* Sesuaikan proporsi gambar */
+        }
+
+        /*.content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }*/
+    </style>
+
+    <!-- Icons -->
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="~/Content/assets/media/favicons/favicon.png">
+    <!-- END Icons -->
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/Content/assets/js/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/Content/assets/js/plugins/sweetalert2/sweetalert2.min.css">
+    <!-- Fonts and Codebase framework -->
+    <link rel="stylesheet" id="css-main" href="~/Content/assets/css/codebase.min.css">
+    <link id="css-theme" rel="stylesheet" href="~/Content/assets/css/themes/pulse.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
+    <!-- <link rel="stylesheet" id="css-theme" href="~/Content/assets/css/themes/flat.min.css"> -->
+    <!-- END Stylesheets -->
+
+    <script src="~/Content/assets/js/lib/jquery.min.js"></script>
+
+</head>
+<body>
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
+
+    <input type="text" id="web_link" value="@Session["Web_Link"]" hidden />
+
+    <div id="page-container" class="main-content-boxed">
+
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Content -->
+            <div class="bg-image" style="background-image: url('/Content/assets/media/photos/background-wpi.jpeg');">
+                <div class="hero bg-primary-dark-op">
+                    <div class="hero-inner">
+                        <div class="content content-full text-center">
+                            <img src="~/Content/Images/LogoKPP.png" alt="Small Image" class="small-image">
+                            <h1 class="display-4 fw-bold text-white mb-2">
+                                Codebase
+                            </h1>
+                            <h2 class="fw-normal text-white-75 mb-5">
+                                It’s Time to Create Your Next Amazing Project
+                            </h2>
+                            <a class="btn btn-primary rounded-pill px-4 py-2" href="be_layout_hero_image.html">
+                                <i class="si si-energy opacity-50 me-1"></i> Get Started
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+    </div>
+    <!-- END Page Container -->
+    <!--
+        Codebase JS
+
+        Core libraries and functionality
+        webpack is putting everything together at ~/Content/assets/_js/main/app.js
+    -->
+    <script src="~/Content/assets/js/codebase.app.min.js"></script>
+    <script src="~/Content/assets/js/plugins/sweetalert2/sweetalert2.min.js"></script>
+
+    <script src="~/Content/assets/js/plugins/select2/js/select2.full.min.js"></script>
+    <script>
+        Codebase.helpersOnLoad(['jq-select2']);
+    </script>
+    <script src="~/Scripts/Page/login.js"></script>
+
+</body>
+</html>
