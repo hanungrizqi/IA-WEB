@@ -1,0 +1,43 @@
+﻿@model IEnumerable<AUDIT_WPI.Models.VW_R_MENU>
+@{
+    ViewBag.url = Context.Request.Path;
+}
+
+<ul class="nav-main">
+    @foreach (var item in Model)
+    {
+        if (item.Sub_Menu == 1)
+        {
+            <li class="nav-main-item">
+                <a class="nav-main-link nav-main-link-submenu" data-toggle="submenu" aria-haspopup="true" aria-expanded="false" href="#">
+                    <i class="nav-main-link-icon fa @item.Icon_Menu"></i>
+                    <span class="nav-main-link-name">@item.Name_Menu</span>
+                </a>
+                <ul class="nav-main-submenu">
+                    @foreach (var sub in ViewBag.Sub)
+                    {
+                        if (sub.ID_Menu == item.ID_Menu)
+                        {
+                            <li class="nav-main-item">
+                                <a class="nav-main-link" href="@ViewBag.Path@sub.Link_Sub_Menu">
+                                    <span class="nav-main-link-name">@sub.Sub_Menu_Description</span>
+                                </a>
+                            </li>
+                        }
+
+                    }
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li class="nav-main-item">
+                <a class="nav-main-link" href="@item.Link_Menu">
+                    <i class="nav-main-link-icon fa @item.Icon_Menu"></i>
+                    <span class="nav-main-link-name">@item.Name_Menu</span>
+                </a>
+            </li>
+        }
+    }
+
+</ul>

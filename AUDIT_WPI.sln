@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AUDIT_WPI", "AUDIT_WPI\AUDIT_WPI.csproj", "{E965E5F3-46BA-4109-AD24-32AC7E93C143}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API_AUDIT_WPI", "API_AUDIT_WPI\API_AUDIT_WPI.csproj", "{511AF6A3-9DB5-4FE9-9C21-E6D1FDC23436}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E965E5F3-46BA-4109-AD24-32AC7E93C143}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E965E5F3-46BA-4109-AD24-32AC7E93C143}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E965E5F3-46BA-4109-AD24-32AC7E93C143}.Release|Any CPU.Build.0 = Release|Any CPU
+		{511AF6A3-9DB5-4FE9-9C21-E6D1FDC23436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{511AF6A3-9DB5-4FE9-9C21-E6D1FDC23436}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{511AF6A3-9DB5-4FE9-9C21-E6D1FDC23436}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{511AF6A3-9DB5-4FE9-9C21-E6D1FDC23436}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

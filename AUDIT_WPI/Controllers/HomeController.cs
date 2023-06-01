@@ -10,6 +10,10 @@ namespace AUDIT_WPI.Controllers
     {
         public ActionResult Index()
         {
+            if (Session["nrp"] == null)
+            {
+                return RedirectToAction("index", "login");
+            }
             return View();
         }
 

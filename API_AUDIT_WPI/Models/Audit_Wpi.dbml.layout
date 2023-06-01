@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Audit_Wpi">
+  <DataContextMoniker Name="/Audit_WpiDataContext" />
+  <nestedChildShapes>
+    <classShape Id="e72845cb-5183-4c8f-8ca8-65c7066652cd" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/TBL_M_AKSE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d46f4b8b-82ef-40c0-9e1e-4daf33a3fb66" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="213669aa-4d7d-4157-a96b-f00bcb0ba383" isExpanded="false" absoluteBounds="0.5, 1, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/TBL_M_ROLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c608ed59-3875-4657-b79c-f55b03c3fb4d" absoluteBounds="0.51499999999999968, 1.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d03c24a7-7622-432d-9b9f-f94476b1e56e" isExpanded="false" absoluteBounds="0.5, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/TBL_M_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dde27cb1-abae-406e-ad98-a2b8ad1ac633" absoluteBounds="0.51499999999999968, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="0e0c2632-8f58-47d8-8f63-7a6b2022888d" isExpanded="false" absoluteBounds="0.5, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/TBL_R_MENU" />
+      <nestedChildShapes>
+        <elementListCompartment Id="042b6543-aa74-4f33-9e1a-291d54a561fd" absoluteBounds="0.51499999999999968, 2.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a90a61aa-0c5d-4f37-af42-c58b5b03e2bc" isExpanded="false" absoluteBounds="0.5, 2, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/TBL_R_SUB_MENU" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5e76179-0c55-4ed1-b817-82d3559e0e76" absoluteBounds="0.51500000000000012, 2.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="787ad32a-dc70-4056-8022-d7b151d76335" isExpanded="false" absoluteBounds="4.75, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/VW_KARYAWAN_ALL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="616d8b30-2015-45b1-8a9f-ca8e2cbb3961" absoluteBounds="4.765, 0.96, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="fa0055eb-b5c4-4b59-b27e-7dcbe2597964" isExpanded="false" absoluteBounds="4.75, 1, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/VW_MENU" />
+      <nestedChildShapes>
+        <elementListCompartment Id="357e65f4-d2db-471e-9fd5-4b68cdaeb674" absoluteBounds="4.765, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cc97412f-44c3-4724-a598-3ee7cc61b3f6" isExpanded="false" absoluteBounds="4.75, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/VW_MSF020" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e2e8689-ece5-4f95-810a-a340e7581d47" absoluteBounds="4.765, 1.96, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="592a60e6-5d97-48c6-8bd8-db739ba3a5db" isExpanded="false" absoluteBounds="4.75, 2, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/VW_R_MENU" />
+      <nestedChildShapes>
+        <elementListCompartment Id="59953c7e-49e0-4a39-b014-1ab7665ac3fe" absoluteBounds="4.765, 2.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c28c6a7a-5317-4b1c-9d16-69c5720ca04f" isExpanded="false" absoluteBounds="4.75, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/VW_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="800d2641-c52a-4be2-b8ca-98370bbeb6c2" absoluteBounds="4.765, 2.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="220e6128-530a-48bb-82ef-1c7d32eafc30" isExpanded="false" absoluteBounds="4.75, 3, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/VW_M_JOBSITE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e68e951c-45d6-4826-9220-be1e22a4c295" absoluteBounds="4.765, 3.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

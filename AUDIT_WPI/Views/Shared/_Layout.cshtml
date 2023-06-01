@@ -1,42 +1,238 @@
-﻿<!DOCTYPE html>
-<html>
+﻿<!doctype html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <title>@ViewBag.Title - WPI</title>
+
+    <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+    <link rel="shortcut icon" href="~/Content/assets/media/favicons/favicon.png">
+    <!-- END Icons -->
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="~/Content/assets/js/plugins/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/Content/assets/js/plugins/sweetalert2/sweetalert2.min.css">
+    <!-- Page JS Plugins CSS -->
+    <link rel="stylesheet" href="~/Content/assets/js/plugins/datatables-bs5/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="~/Content/assets/js/plugins/datatables-buttons-bs5/css/buttons.bootstrap5.min.css">
+    <link rel="stylesheet" href="~/Content/assets/js/plugins/datatables-responsive-bs5/css/responsive.bootstrap5.min.css">
+
+    <!-- Fonts and Codebase framework -->
+    <link rel="stylesheet" id="css-main" href="~/Content/assets/css/codebase.min.css">
+    <link id="css-theme" rel="stylesheet" href="~/Content/assets/css/themes/pulse.min.css">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+    <script src="~/Content/assets/js/lib/jquery.min.js"></script>
+
+    <!-- Page JS Plugins -->
+    <script src="~/Content/assets/js/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/assets/js/plugins/datatables-bs5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/Content/assets/js/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Content/assets/js/plugins/datatables-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
+    <script src="~/Content/assets/js/plugins/datatables-buttons/dataTables.buttons.min.js"></script>
+    <script src="~/Content/assets/js/plugins/datatables-buttons-bs5/js/buttons.bootstrap5.min.js"></script>
+    <script src="~/Content/assets/js/plugins/datatables-buttons-jszip/jszip.min.js"></script>
+    <script src="~/Content/assets/js/plugins/datatables-buttons-pdfmake/pdfmake.min.js"></script>
+    <script src="~/Content/assets/js/plugins/datatables-buttons-pdfmake/vfs_fonts.js"></script>
+    <script src="~/Content/assets/js/plugins/datatables-buttons/buttons.print.min.js"></script>
+    <script src="~/Content/assets/js/plugins/datatables-buttons/buttons.html5.min.js"></script>
+    <script src="~/Scripts/moment.min.js"></script>
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
+    <input type="text" id="hd_nrp" value="@Session["Nrp"].ToString()" hidden />
+    <input type="text" id="hd_site" value="@Session["Site"].ToString()" hidden />
+    <input type="text" id="web_link" value="@Session["Web_Link"].ToString()" hidden />
+
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed side-trans-enabled">
+    @*<div id="page-container" class="sidebar-o enable-page-overlay enable-page-overlay side-scroll page-header-fixed main-content-narrow">*@
+        <div id="page-overlay"></div>
+        <nav id="sidebar">
+            <!-- Sidebar Content -->
+            <div class="sidebar-content">
+                <!-- Side Header -->
+                <div class="content-header justify-content-lg-center">
+                    <!-- Logo -->
+                    <div>
+                        <span class="smini-visible fw-bold tracking-wide fs-lg">
+                            <span class="text-primary">WPI</span>
+                        </span>
+                        <a class="link-fx fw-bold tracking-wide mx-auto" href="/home/index">
+                            <span class="smini-hidden">
+                                <i class="fa fa-paper-plane text-primary"></i>
+                                <span class="fs-4 text-dual">AUDIT</span><span class="fs-4 text-primary">WPI</span>
+                            </span>
+                        </a>
+                    </div>
+                    <!-- END Logo -->
+                    <!-- Options -->
+                    <div>
+                        <!-- Close Sidebar, Visible only on mobile screens -->
+                        <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                        <button type="button" class="btn btn-sm btn-alt-danger d-lg-none" data-toggle="layout" data-action="sidebar_close">
+                            <i class="fa fa-fw fa-times"></i>
+                        </button>
+                        <!-- END Close Sidebar -->
+                    </div>
+                    <!-- END Options -->
+                </div>
+                <!-- END Side Header -->
+                <!-- Sidebar Scrolling -->
+                <div class="js-sidebar-scroll" data-simplebar="init">
+                    <div class="simplebar-wrapper" style="margin: 0px;">
+                        <div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask">
+                            <div class="simplebar-offset" style="right: 0px; bottom: 0px;">
+                                <div class="simplebar-content-wrapper" tabindex="0" role="region" aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
+                                    <div class="simplebar-content" style="padding: 0px;">
+                                        <!-- Side User -->
+                                        <div class="content-side content-side-user px-0 py-0">
+                                            <!-- Visible only in mini mode -->
+                                            <div class="smini-visible-block animated fadeIn px-3">
+                                                <img class="img-avatar img-avatar32" src="~/Content/assets/media/avatars/avatar15.jpg" alt="">
+                                            </div>
+                                            <!-- END Visible only in mini mode -->
+                                            <!-- Visible only in normal mode -->
+                                            <div class="smini-hidden text-center mx-auto">
+                                                <a class="img-link" href="#">
+                                                    <img class="img-avatar" src="~/Content/assets/media/avatars/avatar15.jpg" alt="">
+                                                </a>
+                                                <ul class="list-inline mt-3 mb-0">
+                                                    <li class="list-inline-item">
+                                                        <a class="link-fx text-dual fs-sm fw-semibold text-uppercase" href="#">@Session["Name"].ToString()</a>
+                                                    </li>
+                                                    <li class="list-inline-item">
+                                                        <a class="link-fx text-dual" href="/login/logout">
+                                                            <i class="fa fa-sign-out-alt"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- END Visible only in normal mode -->
+                                        </div>
+                                        <!-- END Side User -->
+                                        <!-- Side Navigation -->
+                                        <div class="content-side content-side-full">
+                                            @Html.Action("Menu", "Menu")
+                                        </div>
+                                        <!-- END Side Navigation -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div><div class="simplebar-placeholder" style="width: auto; height: 1502px;"></div>
+                    </div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 346px; transform: translate3d(0px, 0px, 0px); display: block;"></div></div>
+                </div>
+                <!-- END Sidebar Scrolling -->
+            </div>
+            <!-- Sidebar Content -->
+        </nav>
+        <!-- END Sidebar -->
+        <!-- Header -->
+        <header id="page-header">
+            <!-- Header Content -->
+            <div class="content-header">
+                <!-- Left Section -->
+                <div class="space-x-1">
+                    <!-- Toggle Sidebar -->
+                    <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
+                    <button type="button" class="btn btn-sm btn-alt-secondary" data-toggle="layout" data-action="sidebar_toggle">
+                        <i class="fa fa-fw fa-bars"></i>
+                    </button>
+                    <!-- END Toggle Sidebar -->
+                </div>
+                <!-- END Left Section -->
+                <!-- Right Section -->
+                <div class="space-x-1">
+                    <!-- User Dropdown -->
+                    <div class="dropdown d-inline-block">
+                        <button type="button" class="btn btn-sm btn-alt-secondary" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-user d-sm-none"></i>
+                            <span class="d-none d-sm-inline-block fw-semibold">@Session["Name"].ToString()</span>
+                            <i class="fa fa-angle-down opacity-50 ms-1"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
+                            <div class="px-2 py-3 bg-body-light rounded-top">
+                                <h5 class="h6 text-center mb-0">
+                                    @Session["Nrp"].ToString() - @Session["Site"].ToString()
+                                </h5>
+                            </div>
+                            <div class="p-2">
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item d-flex align-items-center justify-content-between space-x-1" href="/Login/logout">
+                                    <span>Sign Out</span>
+                                    <i class="fa fa-fw fa-sign-out-alt opacity-25"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END User Dropdown -->
+                </div>
+                <!-- END Right Section -->
+            </div>
+        </header>
+        <!-- END Header -->
+        <!-- Main Container -->
+        <main id="main-container">
+            <!-- Page Content -->
+            @*<div class="bg-body-extra-light">*@ @*tambah ini untuk main content warna putih*@
+                <div class="content">
+                    @RenderBody()
+                </div>
+            @*</div>*@
+            <!-- END Page Content -->
+        </main>
+        <!-- END Main Container -->
+        <!-- Footer -->
+        <footer id="page-footer">
+        @*<footer id="page-footer" class="bg-body-extra-light">*@ @*untuk footer putih*@
+            <div class="content py-3">
+                <div class="row fs-sm">
+                    <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
+                        Crafted with <i class="fa fa-heart text-danger"></i> by <a class="fw-semibold" href="https://1.envato.market/ydb" target="_blank">pixelcave</a>
+                    </div>
+                    <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
+                        <a class="fw-semibold" href="home/index" target="_blank">Web Page Intranet</a> © <span data-toggle="year-copy" class="js-year-copy-enabled">2023</span>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- END Footer -->
+    </div>
+    <!-- END Page Container -->
+
+
+    <script src="~/Content/assets/js/codebase.app.min.js"></script>
+
+    <script src="~/Content/assets/js/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="~/Content/assets/js/plugins/select2/js/select2.full.min.js"></script>
+    <script src="~/Content/assets/js/pages/be_ui_progress.min.js"></script>
+    <script src="~/Content/assets/js/plugins/ckeditor5-classic/build/ckeditor.js"></script>
+    <script src="~/Content/assets/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="~/Content/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+    @*<script src="~/Content/assets/js/plugins/jquery-validation/additional-methods.js"></script>
+        <script src="~/Content/assets/js/pages/be_forms_validation.min.js"></script>*@
+    <!-- Page JS Helpers (CKEditor 5 plugins) -->
+    <script>
+        Codebase.helpersOnLoad(['js-ckeditor5', 'jq-notify', 'cb-table-tools-checkable', 'cb-table-tools-sections']);
+    </script>
+
+    <script src="@Html.Raw(ViewBag.JS)"></script>
+
+    <script type="text/javascript">
+        var url = window.location;
+
+        var element = $('ul.nav-main li a').filter(function () {
+            return this.href == url;
+        });
+        element.parent().parent().parent().addClass("open");
+        element.addClass('active');
+
+    </script>
+
+
 </body>
 </html>

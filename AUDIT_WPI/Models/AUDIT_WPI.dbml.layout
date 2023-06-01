@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="AUDIT_WPI">
+  <DataContextMoniker Name="/AUDIT_WPIDataContext" />
+  <nestedChildShapes>
+    <classShape Id="59b2194b-77d4-4b1d-983c-b8492b1a0b12" isExpanded="false" absoluteBounds="0.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/AUDIT_WPIDataContext/TBL_M_USER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="76a3c68a-bd8f-49a9-9766-a98521299bc3" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="edf46052-47bf-401a-b6b1-f1aa76476e73" isExpanded="false" absoluteBounds="0.5, 1, 2, 0.45">
+      <DataClassMoniker Name="/AUDIT_WPIDataContext/TBL_R_SUB_MENU" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fcdac8cf-1aa5-4f88-ac5b-d05152ab2b42" absoluteBounds="0.51499999999999968, 1.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="69f63f4f-7d79-4049-9dfb-e7804c1b85c7" isExpanded="false" absoluteBounds="0.5, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/AUDIT_WPIDataContext/TBL_M_ROLE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2375e608-97f3-4f6b-9167-86930de86c4f" absoluteBounds="0.51499999999999968, 1.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7e02cf77-3d0c-4fb0-93bf-f9298998ee2b" isExpanded="false" absoluteBounds="2.625, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/AUDIT_WPIDataContext/VW_KARYAWAN_ALL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4a666628-be34-4088-88c1-1247c8a02b76" absoluteBounds="2.6399999999999997, 0.96, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1bf92898-85df-41b3-97b1-c8b89e753d60" isExpanded="false" absoluteBounds="2.625, 1, 2, 0.45">
+      <DataClassMoniker Name="/AUDIT_WPIDataContext/VW_R_MENU" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8be42150-5326-4145-ba47-4ce2db8156ee" absoluteBounds="2.6399999999999997, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ea294d89-b2c4-4f79-9f63-1b8ff62503c6" isExpanded="false" absoluteBounds="2.625, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/AUDIT_WPIDataContext/VW_User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4ff41b48-44a9-4b9a-9b3c-03254e4cd5e6" absoluteBounds="2.6399999999999997, 1.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
