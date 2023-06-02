@@ -68,5 +68,11 @@
         <elementListCompartment Id="e68e951c-45d6-4826-9220-be1e22a4c295" absoluteBounds="4.765, 3.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="5e39b4b4-df51-4dd1-861b-d99219a0324b" isExpanded="false" absoluteBounds="2.625, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/TBL_R_SLIDER" />
+      <nestedChildShapes>
+        <elementListCompartment Id="39e73ab1-97a7-4f97-b1ed-dbcf3c7e1efa" absoluteBounds="2.64, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

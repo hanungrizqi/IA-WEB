@@ -26,7 +26,7 @@ namespace API_AUDIT_WPI
                 defaults: new { id = RouteParameter.Optional }
             );
 
-            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "GET,POST");
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "GET,POST,DELETE,PUT");
             //EnableCorsAttribute cors = new EnableCorsAttribute("http://localhost:57074,http://10.14.101.111:7676,http://10.14.101.111:7677", "*", "GET,POST");
 
             //EnableCorsAttribute cors2 = new EnableCorsAttribute("http://10.14.101.111:7676", "*", "GET,POST");

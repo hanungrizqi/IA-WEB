@@ -50,7 +50,7 @@
     </div>
 
     <div id="page-container" class="sidebar-o enable-page-overlay side-scroll page-header-modern main-content-boxed side-trans-enabled">
-    @*<div id="page-container" class="sidebar-o enable-page-overlay enable-page-overlay side-scroll page-header-fixed main-content-narrow">*@
+        @*<div id="page-container" class="sidebar-o enable-page-overlay enable-page-overlay side-scroll page-header-fixed main-content-narrow">*@
         <div id="page-overlay"></div>
         <nav id="sidebar">
             <!-- Sidebar Content -->
@@ -160,8 +160,8 @@
                         <div class="dropdown-menu dropdown-menu-md dropdown-menu-end p-0" aria-labelledby="page-header-user-dropdown">
                             <div class="px-2 py-3 bg-body-light rounded-top">
                                 @*<h5 class="h6 text-center mb-0">
-                                    @Session["Role"].ToString()
-                                </h5>*@
+                                        @Session["Role"].ToString()
+                                    </h5>*@
                                 <h5 class="h6 text-center mb-0">
                                     @Session["Nrp"].ToString() - @Session["Site"].ToString()
                                 </h5>
@@ -189,23 +189,23 @@
         <main id="main-container">
             <!-- Page Content -->
             @*<div class="bg-body-extra-light">*@ @*tambah ini untuk main content warna putih*@
-                <div class="content">
-                    @RenderBody()
-                </div>
+            <div class="content">
+                @RenderBody()
+            </div>
             @*</div>*@
             <!-- END Page Content -->
         </main>
         <!-- END Main Container -->
         <!-- Footer -->
         <footer id="page-footer">
-        @*<footer id="page-footer" class="bg-body-extra-light">*@ @*untuk footer putih*@
+            @*<footer id="page-footer" class="bg-body-extra-light">*@ @*untuk footer putih*@
             <div class="content py-3">
                 <div class="row fs-sm">
                     <div class="col-sm-6 order-sm-2 py-1 text-center text-sm-end">
                         Crafted with <i class="fa fa-heart text-danger"></i> by <a class="fw-semibold" href="https://1.envato.market/ydb" target="_blank">pixelcave</a>
                     </div>
                     <div class="col-sm-6 order-sm-1 py-1 text-center text-sm-start">
-                        <a class="fw-semibold" href="#" >Web Page Intranet</a> © <span data-toggle="year-copy" class="js-year-copy-enabled">2023</span>
+                        <a class="fw-semibold" href="#">Web Page Intranet</a> © <span data-toggle="year-copy" class="js-year-copy-enabled">2023</span>
                     </div>
                 </div>
             </div>
@@ -223,11 +223,12 @@
     <script src="~/Content/assets/js/plugins/ckeditor5-classic/build/ckeditor.js"></script>
     <script src="~/Content/assets/js/plugins/bootstrap-notify/bootstrap-notify.min.js"></script>
     <script src="~/Content/assets/js/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="~/Content/assets/js/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
     @*<script src="~/Content/assets/js/plugins/jquery-validation/additional-methods.js"></script>
         <script src="~/Content/assets/js/pages/be_forms_validation.min.js"></script>*@
     <!-- Page JS Helpers (CKEditor 5 plugins) -->
     <script>
-        Codebase.helpersOnLoad(['js-ckeditor5', 'jq-notify', 'cb-table-tools-checkable', 'cb-table-tools-sections']);
+        Codebase.helpersOnLoad(['js-ckeditor5', 'jq-notify', 'cb-table-tools-checkable', 'cb-table-tools-sections', 'jq-magnific-popup']);
     </script>
 
     <script src="@Html.Raw(ViewBag.JS)"></script>

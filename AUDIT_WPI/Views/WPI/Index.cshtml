@@ -11,18 +11,28 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
     <title>Web Page Intranet</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
     <style>
-        .small-image {
-            width: 150px; /* Ubah ukuran gambar sesuai kebutuhan */
-            height: auto; /* Sesuaikan proporsi gambar */
+        .logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 0px;
+            margin-top: 0px;
         }
 
-        /*.content {
+        .slider-item {
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }*/
+            justify-content: center;
+            align-items: center;
+            margin-top: 0px;
+        }
+
+        .slider-image {
+            max-width: 100%;
+            max-height: 300px; /* Sesuaikan ukuran gambar slider sesuai kebutuhan */
+            margin: 0 auto;
+        }
     </style>
 
     <!-- Icons -->
@@ -43,6 +53,10 @@
 
     <script src="~/Content/assets/js/lib/jquery.min.js"></script>
 
+    <!-- Slick Carousel -->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>-->
+    <!-- END Slick Carousel -->
 </head>
 <body>
     <div id="overlay">
@@ -58,11 +72,23 @@
         <!-- Main Container -->
         <main id="main-container">
             <!-- Page Content -->
-            <div class="bg-image" style="background-image: url('/Content/assets/media/photos/background-wpi.jpeg');">
+            <div class="bg-image" style="background-image: url('/Content/assets/media/photos/Desain-WEBPAGE-opsi-2.png');">
                 <div class="hero bg-primary-dark-op">
                     <div class="hero-inner">
                         <div class="content content-full text-center">
-                            <img src="~/Content/Images/LogoKPP.png" alt="Small Image" class="small-image">
+                            <img src="~/Content/Images/LogoKPP.png" alt="Logo" class="logo" @*alt="Small Image" class="small-image"*@>
+                            <div class="slider">
+                                <div class="slider-item">
+                                    <img src="~/Content/assets/media/photos/photo99.jpg" alt="Image 1" class="slider-image">
+                                </div>
+                                <div class="slider-item">
+                                    <img src="~/Content/assets/media/photos/photo2.jpg" alt="Image 2" class="slider-image">
+                                </div>
+                                <div class="slider-item">
+                                    <img src="~/Content/assets/media/photos/photo15.jpg" alt="Image 3" class="slider-image">
+                                </div>
+                                <!-- Add more slider items with additional images -->
+                            </div>
                             <h1 class="display-4 fw-bold text-white mb-2">
                                 Codebase
                             </h1>
@@ -91,10 +117,20 @@
     <script src="~/Content/assets/js/plugins/sweetalert2/sweetalert2.min.js"></script>
 
     <script src="~/Content/assets/js/plugins/select2/js/select2.full.min.js"></script>
-    <script>
-        Codebase.helpersOnLoad(['jq-select2']);
-    </script>
-    <script src="~/Scripts/Page/login.js"></script>
+    @*<script src="~/Content/assets/js/plugins/slick-carousel/slick.min.js"></script>*@
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    @*<script>
+        Codebase.helpersOnLoad(['jq-select2', 'jq-slick']);
+        $(document).ready(function () {
+            $('.slider').slick({
+                dots: true, // Add navigation dots
+                arrows: false, // Hide navigation arrows
+                autoplay: true, // Enable autoplay
+                autoplaySpeed: 5000 // Set autoplay speed in milliseconds
+            });
+        });
+    </script>*@
+    <script src="~/Scripts/Page/WPIIndex.js"></script>
 
 </body>
 </html>

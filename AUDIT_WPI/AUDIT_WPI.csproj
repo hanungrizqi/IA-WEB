@@ -136,6 +136,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MasterController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Controllers\WPIController.cs" />
@@ -3963,8 +3964,10 @@
     <Content Include="Content\assets\media\photos\1.jpg" />
     <Content Include="Content\assets\media\photos\background-wpi.jpeg" />
     <Content Include="Content\assets\media\photos\bg_hero_landing.jpg" />
+    <Content Include="Content\assets\media\photos\Desain-WEBPAGE-opsi-2.png" />
     <Content Include="Content\assets\media\photos\haul.jpg" />
     <Content Include="Content\assets\media\photos\heyy.jpg" />
+    <Content Include="Content\assets\media\photos\LOGO-IARM-Dept.png" />
     <Content Include="Content\assets\media\photos\logo-wpi.png" />
     <Content Include="Content\assets\media\photos\pama.jpg" />
     <Content Include="Content\assets\media\photos\photo1%402x.jpg" />
@@ -4053,6 +4056,7 @@
     <Content Include="Content\assets\media\photos\photo8.jpg" />
     <Content Include="Content\assets\media\photos\photo9%402x.jpg" />
     <Content Include="Content\assets\media\photos\photo9.jpg" />
+    <Content Include="Content\assets\media\photos\photo99.jpg" />
     <Content Include="Content\assets\media\photos\try.jpg" />
     <Content Include="Content\assets\media\photos\trytry.jpg" />
     <Content Include="Content\assets\media\photos\yyyy.jpg" />
@@ -4356,8 +4360,10 @@
     </None>
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\Page\login.js" />
+    <Content Include="Scripts\Page\MasterSliders.js" />
     <Content Include="Scripts\Page\SettingMenu.js" />
     <Content Include="Scripts\Page\SettingUser.js" />
+    <Content Include="Scripts\Page\WPIIndex.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -4375,6 +4381,7 @@
     <Content Include="Views\Setting\Users.cshtml" />
     <Content Include="Views\Setting\Menu.cshtml" />
     <Content Include="Views\WPI\Index.cshtml" />
+    <Content Include="Views\Master\Sliders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

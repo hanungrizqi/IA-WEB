@@ -45,6 +45,9 @@ namespace API_AUDIT_WPI.Models
     partial void InsertTBL_R_SUB_MENU(TBL_R_SUB_MENU instance);
     partial void UpdateTBL_R_SUB_MENU(TBL_R_SUB_MENU instance);
     partial void DeleteTBL_R_SUB_MENU(TBL_R_SUB_MENU instance);
+    partial void InsertTBL_R_SLIDER(TBL_R_SLIDER instance);
+    partial void UpdateTBL_R_SLIDER(TBL_R_SLIDER instance);
+    partial void DeleteTBL_R_SLIDER(TBL_R_SLIDER instance);
     #endregion
 		
 		public Audit_WpiDataContext() : 
@@ -162,6 +165,14 @@ namespace API_AUDIT_WPI.Models
 			get
 			{
 				return this.GetTable<VW_M_JOBSITE>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_R_SLIDER> TBL_R_SLIDERs
+		{
+			get
+			{
+				return this.GetTable<TBL_R_SLIDER>();
 			}
 		}
 	}
@@ -2050,6 +2061,92 @@ namespace API_AUDIT_WPI.Models
 				{
 					this._DSTRCT_NAME = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_R_SLIDER")]
+	public partial class TBL_R_SLIDER : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _PATH_SLIDERS;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnPATH_SLIDERSChanging(string value);
+    partial void OnPATH_SLIDERSChanged();
+    #endregion
+		
+		public TBL_R_SLIDER()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PATH_SLIDERS", DbType="VarChar(MAX)")]
+		public string PATH_SLIDERS
+		{
+			get
+			{
+				return this._PATH_SLIDERS;
+			}
+			set
+			{
+				if ((this._PATH_SLIDERS != value))
+				{
+					this.OnPATH_SLIDERSChanging(value);
+					this.SendPropertyChanging();
+					this._PATH_SLIDERS = value;
+					this.SendPropertyChanged("PATH_SLIDERS");
+					this.OnPATH_SLIDERSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
