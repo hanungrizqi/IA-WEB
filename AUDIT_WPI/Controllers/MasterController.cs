@@ -16,5 +16,13 @@ namespace AUDIT_WPI.Controllers
             }
             return View();
         }
+        public ActionResult TentangIAWEB()
+        {
+            if (Session["nrp"] == null)
+            {
+                return RedirectToAction("index", "login");
+            }
+            return View();
+        }
     }
 }

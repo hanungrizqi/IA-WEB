@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
+using System.Web.Hosting;
 using System.Web.Http;
 
 namespace API_AUDIT_WPI.Controllers
@@ -95,69 +96,6 @@ namespace API_AUDIT_WPI.Controllers
             }
         }
 
-        //[HttpPost]
-        //[Route("InsertImage")]
-        //public IHttpActionResult InsertImage()
-        //{
-        //    try
-        //    {
-        //        var httpRequest = HttpContext.Current.Request;
-        //        var files = httpRequest.Files;
-        //        var attachmentUrls = new List<string>();
-
-        //        if (files.Count > 0)
-        //        {
-        //            foreach (string file in files)
-        //            {
-        //                var postedFile = files[file];
-        //                //var fileName = Guid.NewGuid().ToString() + Path.GetExtension(postedFile.FileName);
-        //                var fileName = postedFile.FileName;
-        //                var folderPath = HttpContext.Current.Server.MapPath("~/Content/SliderFile");
-
-        //                if (!Directory.Exists(folderPath))
-        //                {
-        //                    Directory.CreateDirectory(folderPath);
-        //                }
-
-        //                var filePath = Path.Combine(folderPath, fileName);
-        //                if (File.Exists(filePath))
-        //                {
-        //                    return Ok(new { Remarks = false, Message = "Photo already exists." });
-        //                }
-        //                postedFile.SaveAs(filePath);
-
-        //                var attachmentUrl = Url.Content("~/Content/SliderFile/" + fileName);
-        //                attachmentUrls.Add(attachmentUrl);
-        //            }
-
-        //            using (var dbContext = new Audit_WpiDataContext())
-        //            {
-        //                foreach (var attachmentUrl in attachmentUrls)
-        //                {
-        //                    var slider = new TBL_R_SLIDER
-        //                    {
-        //                        PATH_SLIDERS = attachmentUrl,
-        //                    };
-
-        //                    dbContext.TBL_R_SLIDERs.InsertOnSubmit(slider);
-        //                }
-
-        //                dbContext.SubmitChanges();
-        //            }
-
-        //            return Ok(new { Remarks = true, AttachmentUrls = attachmentUrls });
-        //        }
-        //        else
-        //        {
-        //            return BadRequest("No files found in the request.");
-        //        }
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return InternalServerError(e);
-        //    }
-        //}
-
         [HttpPost]
         [Route("InsertImage")]
         public IHttpActionResult InsertImage()
@@ -236,22 +174,6 @@ namespace API_AUDIT_WPI.Controllers
             {
                 var folderPath = HttpContext.Current.Server.MapPath("~/Content/SliderFile");
                 var sliderImages = new List<string>();
-
-                //using (var dbContext = new Audit_WpiDataContext())
-                //{
-                //    var sliders = dbContext.TBL_R_SLIDERs.ToList();
-
-                //    foreach (var slider in sliders)
-                //    {
-                //        var filePath = Path.Combine(folderPath, slider.PATH_SLIDERS);
-
-                //        if (File.Exists(filePath))
-                //        {
-                //            var imageUrl = Url.Content("~/Content/SliderFile/" + slider.PATH_SLIDERS);
-                //            sliderImages.Add(imageUrl);
-                //        }
-                //    }
-                //}
                 var hiddenFileOption = SearchOption.AllDirectories;
 
                 var imageFiles = Directory.GetFiles(folderPath, "*", hiddenFileOption);
@@ -270,58 +192,6 @@ namespace API_AUDIT_WPI.Controllers
             }
         }
 
-        //[HttpPost]
-        //[Route("DeleteImage")]
-        //public IHttpActionResult DeleteImage([FromBody]string imageUrl)
-        //{
-        //    try
-        //    {
-        //        // Mendapatkan hanya nama file dari URL
-        //        string fileName = Path.GetFileName(imageUrl);
-
-        //        // Menghapus file dengan nama yang sama di folder SlideFile jika ada
-        //        string slideDirectory = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Content", "SlideFile");
-
-        //        string slideFilePath = Path.Combine(slideDirectory, fileName);
-
-        //        // Menghapus atribut tersembunyi dari folder SlideFile jika ada
-        //        DirectoryInfo directoryInfo = new DirectoryInfo(slideDirectory);
-        //        if ((directoryInfo.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
-        //        {
-        //            directoryInfo.Attributes = directoryInfo.Attributes & ~FileAttributes.Hidden;
-        //        }
-
-        //        // Menghapus atribut tersembunyi dari file gambar jika ada
-        //        FileInfo fileInfo = new FileInfo(slideFilePath);
-        //        if (fileInfo.Exists)
-        //        {
-        //            if ((fileInfo.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden)
-        //            {
-        //                fileInfo.Attributes = fileInfo.Attributes & ~FileAttributes.Hidden;
-        //            }
-
-        //            fileInfo.Delete();
-        //        }
-
-        //        using (var dbContext = new Audit_WpiDataContext())
-        //        {
-        //            // Menghapus path dari TBL_R_SLIDER
-        //            var slider = dbContext.TBL_R_SLIDERs.FirstOrDefault(s => s.PATH_SLIDERS == imageUrl);
-        //            if (slider != null)
-        //            {
-        //                dbContext.TBL_R_SLIDERs.DeleteOnSubmit(slider);
-        //                dbContext.SubmitChanges();
-        //            }
-        //        }
-
-        //        return Ok(new { Remarks = true });
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return InternalServerError(e);
-        //    }
-        //}
-
         [HttpPost]
         public IHttpActionResult DeleteImage([FromBody] string imageUrl)
         {
@@ -330,7 +200,7 @@ namespace API_AUDIT_WPI.Controllers
                 // Mendapatkan path fisik dari URL gambar
                 string baseImagePath = System.Web.HttpContext.Current.Server.MapPath("~/Content/SliderFile/");
                 string imagePath = Path.Combine(baseImagePath, Path.GetFileName(imageUrl));
-
+                imagePath = Uri.UnescapeDataString(imagePath);
                 if (File.Exists(imagePath))
                 {
                     FileAttributes attributes = File.GetAttributes(imagePath);
@@ -383,6 +253,154 @@ namespace API_AUDIT_WPI.Controllers
             catch (Exception ex)
             {
                 return InternalServerError(ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("Insert_Content")]
+        public IHttpActionResult Insert_Content()
+        {
+            try
+            {
+                var httpRequest = HttpContext.Current.Request;
+                var files = httpRequest.Files;
+                var attachmentUrls = new List<string>();
+                var nameContent = HttpContext.Current.Request.Form["nameContent"];
+                if (files.Count > 0)
+                {
+                    foreach (string file in files)
+                    {
+                        var postedFile = files[file];
+                        var fileName = postedFile.FileName;
+                        var folderPath = HttpContext.Current.Server.MapPath("~/Content/ContentFile");
+
+                        if (!Directory.Exists(folderPath))
+                        {
+                            Directory.CreateDirectory(folderPath);
+                        }
+
+                        var filePath = Path.Combine(folderPath, fileName);
+                        if (File.Exists(filePath))
+                        {
+                            return Ok(new { Remarks = false });
+                        }
+
+                        // Simpan file dan atur atribut menjadi FileAttributes.Normal
+                        using (var fileStream = File.Create(filePath))
+                        {
+                            postedFile.InputStream.CopyTo(fileStream);
+                            fileStream.Flush();
+                        }
+                        File.SetAttributes(filePath, FileAttributes.Normal);
+
+                        var attachmentUrl = Url.Content("~/Content/ContentFile/" + fileName);
+                        attachmentUrls.Add(attachmentUrl);
+                    }
+
+                    using (var dbContext = new Audit_WpiDataContext())
+                    {
+                        foreach (var attachmentUrl in attachmentUrls)
+                        {
+                            var slider = new TBL_R_TENTANG_IA_WEB
+                            {
+                                NAME_CONTENT = nameContent,
+                                PATH_CONTENT = attachmentUrl,
+                            };
+
+                            dbContext.TBL_R_TENTANG_IA_WEBs.InsertOnSubmit(slider);
+                        }
+
+                        dbContext.SubmitChanges();
+                    }
+
+                    return Ok(new { Remarks = true, AttachmentUrls = attachmentUrls });
+                }
+                else
+                {
+                    return BadRequest("No file found in the request.");
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
+        [Route("Get_Content")]
+        public IHttpActionResult Get_Content()
+        {
+            try
+            {
+                db.CommandTimeout = 120;
+                var data = db.TBL_R_TENTANG_IA_WEBs.ToList();
+
+                return Ok(new { Data = data });
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]
+        [Route("Delete_Content/{id}")]
+        public IHttpActionResult Delete_Content(int id)
+        {
+            try
+            {
+                var data = db.TBL_R_TENTANG_IA_WEBs.Where(a => a.ID == id).FirstOrDefault();
+
+                // Menghapus file dari folder
+                if (!string.IsNullOrEmpty(data.PATH_CONTENT))
+                {
+                    //string filePath = HttpContext.Current.Server.MapPath(data.PATH_CONTENT);
+                    string virtualPath = data.PATH_CONTENT;
+                    string baseImagePath = System.Web.HttpContext.Current.Server.MapPath("~/Content/ContentFile/");
+                    string imagePath = Path.Combine(baseImagePath, Path.GetFileName(virtualPath));
+                    imagePath = Uri.UnescapeDataString(imagePath);
+                    if (File.Exists(imagePath))
+                    {
+                        FileAttributes attributes = File.GetAttributes(imagePath);
+                        bool isHidden = (attributes & FileAttributes.Hidden) == FileAttributes.Hidden;
+
+                        if (isHidden)
+                        {
+                            File.Delete(imagePath);
+                        }
+                        else
+                        {
+                            //return BadRequest("The file is not hidden.");
+                            File.Delete(imagePath);
+                        }
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
+                }
+                db.TBL_R_TENTANG_IA_WEBs.DeleteOnSubmit(data);
+                db.SubmitChanges();
+                return Ok(new { Remarks = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = e });
+            }
+        }
+
+        [HttpGet]
+        [Route("GetTentangIAData")]
+        public IHttpActionResult GetTentangIAData()
+        {
+            try
+            {
+                var data = db.TBL_R_TENTANG_IA_WEBs.ToList();
+                return Ok(data);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
             }
         }
 

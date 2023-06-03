@@ -74,5 +74,11 @@
         <elementListCompartment Id="39e73ab1-97a7-4f97-b1ed-dbcf3c7e1efa" absoluteBounds="2.64, 0.96, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="f363fe10-93c3-48eb-b4ad-bba1bf8ab08e" isExpanded="false" absoluteBounds="2.625, 1, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/TBL_R_TENTANG_IA_WEB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="03944291-9086-4b75-b7a3-a50b44f37d2b" absoluteBounds="2.64, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

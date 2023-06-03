@@ -135,4 +135,11 @@
       <Column Name="PATH_SLIDERS" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_R_TENTANG_IA_WEB" Member="TBL_R_TENTANG_IA_WEBs">
+    <Type Name="TBL_R_TENTANG_IA_WEB">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NAME_CONTENT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PATH_CONTENT" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

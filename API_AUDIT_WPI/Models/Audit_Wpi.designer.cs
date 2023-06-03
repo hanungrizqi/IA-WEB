@@ -48,6 +48,9 @@ namespace API_AUDIT_WPI.Models
     partial void InsertTBL_R_SLIDER(TBL_R_SLIDER instance);
     partial void UpdateTBL_R_SLIDER(TBL_R_SLIDER instance);
     partial void DeleteTBL_R_SLIDER(TBL_R_SLIDER instance);
+    partial void InsertTBL_R_TENTANG_IA_WEB(TBL_R_TENTANG_IA_WEB instance);
+    partial void UpdateTBL_R_TENTANG_IA_WEB(TBL_R_TENTANG_IA_WEB instance);
+    partial void DeleteTBL_R_TENTANG_IA_WEB(TBL_R_TENTANG_IA_WEB instance);
     #endregion
 		
 		public Audit_WpiDataContext() : 
@@ -173,6 +176,14 @@ namespace API_AUDIT_WPI.Models
 			get
 			{
 				return this.GetTable<TBL_R_SLIDER>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_R_TENTANG_IA_WEB> TBL_R_TENTANG_IA_WEBs
+		{
+			get
+			{
+				return this.GetTable<TBL_R_TENTANG_IA_WEB>();
 			}
 		}
 	}
@@ -2126,6 +2137,116 @@ namespace API_AUDIT_WPI.Models
 					this._PATH_SLIDERS = value;
 					this.SendPropertyChanged("PATH_SLIDERS");
 					this.OnPATH_SLIDERSChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_R_TENTANG_IA_WEB")]
+	public partial class TBL_R_TENTANG_IA_WEB : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _NAME_CONTENT;
+		
+		private string _PATH_CONTENT;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNAME_CONTENTChanging(string value);
+    partial void OnNAME_CONTENTChanged();
+    partial void OnPATH_CONTENTChanging(string value);
+    partial void OnPATH_CONTENTChanged();
+    #endregion
+		
+		public TBL_R_TENTANG_IA_WEB()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME_CONTENT", DbType="VarChar(50)")]
+		public string NAME_CONTENT
+		{
+			get
+			{
+				return this._NAME_CONTENT;
+			}
+			set
+			{
+				if ((this._NAME_CONTENT != value))
+				{
+					this.OnNAME_CONTENTChanging(value);
+					this.SendPropertyChanging();
+					this._NAME_CONTENT = value;
+					this.SendPropertyChanged("NAME_CONTENT");
+					this.OnNAME_CONTENTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PATH_CONTENT", DbType="VarChar(MAX)")]
+		public string PATH_CONTENT
+		{
+			get
+			{
+				return this._PATH_CONTENT;
+			}
+			set
+			{
+				if ((this._PATH_CONTENT != value))
+				{
+					this.OnPATH_CONTENTChanging(value);
+					this.SendPropertyChanging();
+					this._PATH_CONTENT = value;
+					this.SendPropertyChanged("PATH_CONTENT");
+					this.OnPATH_CONTENTChanged();
 				}
 			}
 		}
