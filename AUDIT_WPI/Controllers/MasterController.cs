@@ -24,5 +24,13 @@ namespace AUDIT_WPI.Controllers
             }
             return View();
         }
+        public ActionResult PublikasiLayanan()
+        {
+            if (Session["nrp"] == null)
+            {
+                return RedirectToAction("index", "login");
+            }
+            return View();
+        }
     }
 }

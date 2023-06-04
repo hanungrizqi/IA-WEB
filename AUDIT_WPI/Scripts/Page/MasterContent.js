@@ -44,10 +44,26 @@ function submitContent() {
     let attachmentFile = $("#txt_attach")[0].files[0]; // Mendapatkan file yang dipilih
 
     if (nameContent === '' || nameContent === null) {
-        alert('Please enter content');
+        Swal.fire({
+            title: 'Warning',
+            text: "Please enter name content.",
+            icon: 'warning',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+        });
         return;
     } else if (!attachmentFile) {
-        alert('Please select an attachment file');
+        Swal.fire({
+            title: 'Warning',
+            text: "Please upload file.",
+            icon: 'warning',
+            confirmButtonColor: '#3085d6',
+            confirmButtonText: 'OK',
+            allowOutsideClick: false,
+            allowEscapeKey: false
+        });
         return;
     }
 

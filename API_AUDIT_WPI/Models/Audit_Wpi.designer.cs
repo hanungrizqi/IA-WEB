@@ -51,6 +51,9 @@ namespace API_AUDIT_WPI.Models
     partial void InsertTBL_R_TENTANG_IA_WEB(TBL_R_TENTANG_IA_WEB instance);
     partial void UpdateTBL_R_TENTANG_IA_WEB(TBL_R_TENTANG_IA_WEB instance);
     partial void DeleteTBL_R_TENTANG_IA_WEB(TBL_R_TENTANG_IA_WEB instance);
+    partial void InsertTBL_R_PUBLIKASI_LAYANAN(TBL_R_PUBLIKASI_LAYANAN instance);
+    partial void UpdateTBL_R_PUBLIKASI_LAYANAN(TBL_R_PUBLIKASI_LAYANAN instance);
+    partial void DeleteTBL_R_PUBLIKASI_LAYANAN(TBL_R_PUBLIKASI_LAYANAN instance);
     #endregion
 		
 		public Audit_WpiDataContext() : 
@@ -184,6 +187,14 @@ namespace API_AUDIT_WPI.Models
 			get
 			{
 				return this.GetTable<TBL_R_TENTANG_IA_WEB>();
+			}
+		}
+		
+		public System.Data.Linq.Table<TBL_R_PUBLIKASI_LAYANAN> TBL_R_PUBLIKASI_LAYANANs
+		{
+			get
+			{
+				return this.GetTable<TBL_R_PUBLIKASI_LAYANAN>();
 			}
 		}
 	}
@@ -2247,6 +2258,116 @@ namespace API_AUDIT_WPI.Models
 					this._PATH_CONTENT = value;
 					this.SendPropertyChanged("PATH_CONTENT");
 					this.OnPATH_CONTENTChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TBL_R_PUBLIKASI_LAYANAN")]
+	public partial class TBL_R_PUBLIKASI_LAYANAN : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _NAME_APP;
+		
+		private string _LINK_APP;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNAME_APPChanging(string value);
+    partial void OnNAME_APPChanged();
+    partial void OnLINK_APPChanging(string value);
+    partial void OnLINK_APPChanged();
+    #endregion
+		
+		public TBL_R_PUBLIKASI_LAYANAN()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NAME_APP", DbType="VarChar(50)")]
+		public string NAME_APP
+		{
+			get
+			{
+				return this._NAME_APP;
+			}
+			set
+			{
+				if ((this._NAME_APP != value))
+				{
+					this.OnNAME_APPChanging(value);
+					this.SendPropertyChanging();
+					this._NAME_APP = value;
+					this.SendPropertyChanged("NAME_APP");
+					this.OnNAME_APPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINK_APP", DbType="VarChar(MAX)")]
+		public string LINK_APP
+		{
+			get
+			{
+				return this._LINK_APP;
+			}
+			set
+			{
+				if ((this._LINK_APP != value))
+				{
+					this.OnLINK_APPChanging(value);
+					this.SendPropertyChanging();
+					this._LINK_APP = value;
+					this.SendPropertyChanged("LINK_APP");
+					this.OnLINK_APPChanged();
 				}
 			}
 		}

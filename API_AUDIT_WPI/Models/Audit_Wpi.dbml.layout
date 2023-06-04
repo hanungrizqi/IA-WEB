@@ -80,5 +80,11 @@
         <elementListCompartment Id="03944291-9086-4b75-b7a3-a50b44f37d2b" absoluteBounds="2.64, 1.46, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
+    <classShape Id="ce4010df-a35a-40a0-b0d1-015c1dfec606" isExpanded="false" absoluteBounds="2.625, 1.5, 2, 0.45">
+      <DataClassMoniker Name="/Audit_WpiDataContext/TBL_R_PUBLIKASI_LAYANAN" />
+      <nestedChildShapes>
+        <elementListCompartment Id="99ab7e5f-b84e-425d-b91a-d8c74f498296" absoluteBounds="2.64, 1.96, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

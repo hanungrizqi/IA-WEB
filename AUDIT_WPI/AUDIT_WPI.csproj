@@ -4361,6 +4361,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\Page\login.js" />
     <Content Include="Scripts\Page\MasterContent.js" />
+    <Content Include="Scripts\Page\MasterPublikasi.js" />
     <Content Include="Scripts\Page\MasterSliders.js" />
     <Content Include="Scripts\Page\SettingMenu.js" />
     <Content Include="Scripts\Page\SettingUser.js" />
@@ -4384,6 +4385,7 @@
     <Content Include="Views\WPI\Index.cshtml" />
     <Content Include="Views\Master\Sliders.cshtml" />
     <Content Include="Views\Master\TentangIAWEB.cshtml" />
+    <Content Include="Views\Master\PublikasiLayanan.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

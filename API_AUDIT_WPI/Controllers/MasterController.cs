@@ -404,5 +404,95 @@ namespace API_AUDIT_WPI.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("GetPublikasiLayananData")]
+        public IHttpActionResult GetPublikasiLayananData()
+        {
+            try
+            {
+                var data = db.TBL_R_PUBLIKASI_LAYANANs.ToList();
+                var result = data.Select(d => new
+                {
+                    d.LINK_APP,
+                    d.NAME_APP
+                }).ToList();
+
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.Message);
+            }
+        }
+
+        [HttpGet]
+        [Route("Get_Publikasi")]
+        public IHttpActionResult Get_Publikasi()
+        {
+            try
+            {
+                var data = db.TBL_R_PUBLIKASI_LAYANANs.ToList();
+
+                return Ok(new { Data = data });
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpPost]
+        [Route("Create_Publikasi")]
+        public IHttpActionResult Create_Publikasi(TBL_R_PUBLIKASI_LAYANAN param)
+        {
+            try
+            {
+                TBL_R_PUBLIKASI_LAYANAN tbl = new TBL_R_PUBLIKASI_LAYANAN();
+                tbl.NAME_APP = param.NAME_APP;
+                tbl.LINK_APP = param.LINK_APP;
+                db.TBL_R_PUBLIKASI_LAYANANs.InsertOnSubmit(tbl);
+                db.SubmitChanges();
+                return Ok(new { Remarks = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = e });
+            }
+        }
+
+        [HttpPost]
+        [Route("Update_Publikasi")]
+        public IHttpActionResult Update_Publikasi(TBL_R_PUBLIKASI_LAYANAN param)
+        {
+            try
+            {
+                var data = db.TBL_R_PUBLIKASI_LAYANANs.Where(a => a.ID == param.ID).FirstOrDefault();
+                data.NAME_APP = param.NAME_APP;
+                data.LINK_APP = param.LINK_APP;
+                db.SubmitChanges();
+                return Ok(new { Remarks = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = e });
+            }
+        }
+
+        [HttpPost]
+        [Route("Delete_Publikasi")]
+        public IHttpActionResult Delete_Publikasi(int id)
+        {
+            try
+            {
+                var data = db.TBL_R_PUBLIKASI_LAYANANs.Where(a => a.ID == id).FirstOrDefault();
+                db.TBL_R_PUBLIKASI_LAYANANs.DeleteOnSubmit(data);
+                db.SubmitChanges();
+                return Ok(new { Remarks = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = e });
+            }
+        }
     }
 }

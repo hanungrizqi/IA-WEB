@@ -142,4 +142,11 @@
       <Column Name="PATH_CONTENT" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.TBL_R_PUBLIKASI_LAYANAN" Member="TBL_R_PUBLIKASI_LAYANANs">
+    <Type Name="TBL_R_PUBLIKASI_LAYANAN">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NAME_APP" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LINK_APP" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>
