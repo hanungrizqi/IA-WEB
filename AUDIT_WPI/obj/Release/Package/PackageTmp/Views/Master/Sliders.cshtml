@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Sliders";
+    ViewBag.JS = "/Scripts/Page/MasterSliders.js";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="content-heading">Image Sliders</h2>
+<div class="block block-rounded">
+    <div class="block-header block-header-default">
+        <h3 class="block-title">
+            Sliders<small> Set Images Slider's</small>
+        </h3>
+    </div>
+    <div class="block-content">
+        <form action="#" method="POST" enctype="multipart/form-data" id="sliderForm">
+            <div class="row push">
+                <div class="col-lg-4">
+                    <p class="text-muted">
+                        File inputs, showcasing both single files images
+                    </p>
+                </div>
+                <div class="col-lg-8 col-xl-5 overflow-hidden">
+                    <div class="mb-4">
+                        <label class="form-label" for="imgSlider">Upload Images</label>
+                        <input class="form-control" type="file" accept=".jpg,.jpeg,.png" name="files[]" id="imgSlider">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="block-content block-content-full block-content-sm bg-body-light fs-sm">
+        <div class="block-options justify-content-center">
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-sm btn-success" onclick="submitImage()">
+                        <i class="fa fa-check-circle opacity-50 me-1"></i> Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h2 class="content-heading">Gallery <small>Sliders</small></h2>
+@*<div id="imageGallery" class="row items-push js-gallery">
+    <div class="col-md-6 col-lg-4 col-xl-3 animated fadeIn">
+        <div class="options-container fx-item-zoom-in fx-overlay-slide-down">
+            <img class="img-fluid options-item" src="~/Content/assets/media/photos/photo16.jpg" alt="">
+            <div class="options-overlay bg-black-75">
+                <div class="options-overlay-content">
+                    <h3 class="h4 text-white mb-1">Image</h3>
+                    <h4 class="h6 fw-normal text-white-75 mb-3">More Details</h4>
+                    <a class="btn btn-sm btn-alt-danger" href="javascript:void(0)">
+                        <i class="fa fa-times opacity-50 me-1"></i> Delete
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+<div id="imageGallery" class="row items-push js-gallery">
+     
+</div>

@@ -54,7 +54,7 @@ namespace API_AUDIT_WPI.Controllers
         {
             try
             {
-                var data = db.VW_MSF020s.Where(x => x.ENTITY == username).ToList();
+                var data = db.VW_KARYAWAN_ALLs.Where(x => x.EMPLOYEE_ID == username).ToList();
 
                 return Ok(new { Data = data, Total = data.Count() });
             }

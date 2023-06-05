@@ -17,7 +17,7 @@ namespace AUDIT_WPI.Controllers
             return View();
         }
 
-        public JsonResult MakeSession(string NRP, string Jobsite, string Roled)
+        public JsonResult MakeSession(string NRP/*, string Jobsite, string Roled*/)
         {
             string nrp = "";
 
@@ -35,22 +35,21 @@ namespace AUDIT_WPI.Controllers
 
             if (dataRole != null)
             {
-                if (Jobsite == null || Jobsite == "")
-                {
-                    return new JsonResult() { Data = new { Remarks = false, Message = "Jobsite tidak sesuai" }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                }
-                if (Roled == null || Roled == "" || Roled != dataRoledakun.RoleName)
-                {
-                    return new JsonResult() { Data = new { Remarks = false, Message = "Role tidak sesuai" }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-                }
+                //if (Jobsite == null || Jobsite == "")
+                //{
+                //    return new JsonResult() { Data = new { Remarks = false, Message = "Jobsite tidak sesuai" }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                //}
+                //if (Roled == null || Roled == "" || Roled != dataRoledakun.RoleName)
+                //{
+                //    return new JsonResult() { Data = new { Remarks = false, Message = "Role tidak sesuai" }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                //}
 
                 Session["Web_Link"] = System.Configuration.ConfigurationManager.AppSettings["WebApp_Link"].ToString();
                 Session["Nrp"] = nrp;
                 Session["ID_Role"] = dataRole.ID_Role;
                 Session["Name"] = dataUser.NAME;
-                Session["Site"] = Jobsite;
-                Session["Role"] = dataRoledakun.RoleName;
-                //Session["Site"] = dataUser.DSTRCT_CODE;
+                //Session["Site"] = Jobsite;
+                //Session["Role"] = dataRoledakun.RoleName;
                 return new JsonResult() { Data = new { Remarks = true }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
             else

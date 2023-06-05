@@ -43,14 +43,15 @@ namespace API_AUDIT_WPI.ViewModel
             {
 
                 var data_user = db.VW_KARYAWAN_ALLs.Where(x => x.EMPLOYEE_ID == nrp).SingleOrDefault();
-                if (data_user.DSTRCT_CODE == Jobsite || data_user.DSTRCT_CODE == "KPHO")
-                {
-                    status = true;
-                }
-                else
-                {
-                    status = false;
-                }
+                status = true;
+                //if (data_user.DSTRCT_CODE == Jobsite || data_user.DSTRCT_CODE == "KPHO")
+                //{
+                //    status = true;
+                //}
+                //else
+                //{
+                //    status = false;
+                //}
             }
 
             return status;
