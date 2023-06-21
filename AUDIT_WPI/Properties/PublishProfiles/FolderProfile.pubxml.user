@@ -4,7 +4,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>D:\Publish Project\AUDIT_IAWEB\20230605\web</_PublishTargetUrl>
+    <_PublishTargetUrl>D:\Publish Project\AUDIT_IAWEB\Production\20230615_V2\Web</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -14,10 +14,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>09/10/2013 16:29:20</publishTime>
     </File>
     <File Include="bin/AUDIT_WPI.dll">
-      <publishTime>06/05/2023 11:48:36</publishTime>
+      <publishTime>06/15/2023 12:09:21</publishTime>
     </File>
     <File Include="bin/AUDIT_WPI.pdb">
-      <publishTime>06/05/2023 11:48:36</publishTime>
+      <publishTime>06/15/2023 12:09:21</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>09/05/2018 16:10:50</publishTime>
@@ -212,7 +212,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>01/23/2014 13:57:34</publishTime>
     </File>
     <File Include="Content/assets/css/codebase.css">
-      <publishTime>06/01/2023 09:08:58</publishTime>
+      <publishTime>06/12/2023 11:19:34</publishTime>
     </File>
     <File Include="Content/assets/css/codebase.min.css">
       <publishTime>06/01/2023 09:08:58</publishTime>
@@ -246,6 +246,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     </File>
     <File Include="Content/assets/css/themes/pulse.min.css">
       <publishTime>06/01/2023 09:08:58</publishTime>
+    </File>
+    <File Include="Content/assets/css/viewer.css">
+      <publishTime>06/06/2023 08:59:52</publishTime>
     </File>
     <File Include="Content/assets/fonts/fontawesome/fa-brands-400.ttf">
       <publishTime>06/01/2023 09:08:58</publishTime>
@@ -12787,6 +12790,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/assets/_scss/vendor/_slick.scss">
       <publishTime>06/01/2023 09:09:09</publishTime>
     </File>
+    <File Include="Content/Images/Logo KPP baru.png">
+      <publishTime>06/06/2023 13:39:46</publishTime>
+    </File>
     <File Include="Content/Images/LogoKPP.png">
       <publishTime>06/01/2023 09:09:09</publishTime>
     </File>
@@ -12821,16 +12827,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/01/2023 08:04:16</publishTime>
     </File>
     <File Include="Models/AUDIT_WPI.dbml">
-      <publishTime>06/01/2023 09:05:33</publishTime>
+      <publishTime>06/06/2023 11:18:45</publishTime>
     </File>
     <File Include="Scripts/moment.min.js">
       <publishTime>06/01/2023 09:29:47</publishTime>
     </File>
     <File Include="Scripts/Page/login.js">
-      <publishTime>06/05/2023 10:34:25</publishTime>
+      <publishTime>06/14/2023 10:54:03</publishTime>
     </File>
     <File Include="Scripts/Page/MasterContent.js">
-      <publishTime>06/04/2023 09:37:39</publishTime>
+      <publishTime>06/06/2023 11:53:21</publishTime>
     </File>
     <File Include="Scripts/Page/MasterPublikasi.js">
       <publishTime>06/04/2023 09:13:56</publishTime>
@@ -12845,13 +12851,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/01/2023 10:49:31</publishTime>
     </File>
     <File Include="Scripts/Page/WPIIndex.js">
-      <publishTime>06/04/2023 09:28:22</publishTime>
+      <publishTime>06/06/2023 13:32:08</publishTime>
+    </File>
+    <File Include="Scripts/pdf.js">
+      <publishTime>06/06/2023 08:57:33</publishTime>
+    </File>
+    <File Include="Scripts/pdf.worker.js">
+      <publishTime>06/06/2023 08:57:33</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>06/02/2023 08:37:40</publishTime>
+      <publishTime>06/14/2023 11:31:23</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
-      <publishTime>06/05/2023 10:45:19</publishTime>
+      <publishTime>06/14/2023 10:53:49</publishTime>
     </File>
     <File Include="Views/Master/PublikasiLayanan.cshtml">
       <publishTime>06/04/2023 08:34:21</publishTime>
@@ -12872,7 +12884,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/01/2023 08:04:16</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>06/05/2023 10:44:25</publishTime>
+      <publishTime>06/14/2023 12:39:08</publishTime>
     </File>
     <File Include="Views/Shared/_Sidebar.cshtml">
       <publishTime>06/01/2023 09:13:28</publishTime>
@@ -12881,13 +12893,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/01/2023 08:04:16</publishTime>
     </File>
     <File Include="Views/WPI/Index.cshtml">
-      <publishTime>06/04/2023 09:26:33</publishTime>
+      <publishTime>06/14/2023 16:53:21</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>06/01/2023 08:04:16</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>06/05/2023 11:40:05</publishTime>
+      <publishTime>06/15/2023 12:04:11</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -163,6 +163,7 @@
     <Content Include="Content\assets\css\themes\flat.min.css" />
     <Content Include="Content\assets\css\themes\pulse.css" />
     <Content Include="Content\assets\css\themes\pulse.min.css" />
+    <Content Include="Content\assets\css\viewer.css" />
     <Content Include="Content\assets\fonts\simple-line-icons\Simple-Line-Icons.svg" />
     <Content Include="Content\assets\js\codebase.app.min.js" />
     <Content Include="Content\assets\js\codebase.app.min.txt" />
@@ -4093,6 +4094,7 @@
     <Content Include="Content\assets\_js\pages\op_auth_signup.js" />
     <Content Include="Content\assets\_js\pages\op_coming_soon.js" />
     <Content Include="Content\assets\_js\pages\op_installation.js" />
+    <Content Include="Content\Images\Logo KPP baru.png" />
     <Content Include="Content\Images\LogoKPP.png" />
     <Content Include="Content\Images\logoKPP1-noBG.png" />
     <Content Include="Content\Images\logoKPP1.png" />
@@ -4366,6 +4368,8 @@
     <Content Include="Scripts\Page\SettingMenu.js" />
     <Content Include="Scripts\Page\SettingUser.js" />
     <Content Include="Scripts\Page\WPIIndex.js" />
+    <Content Include="Scripts\pdf.js" />
+    <Content Include="Scripts\pdf.worker.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

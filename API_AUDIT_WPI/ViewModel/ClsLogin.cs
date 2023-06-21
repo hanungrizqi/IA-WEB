@@ -34,6 +34,7 @@ namespace API_AUDIT_WPI.ViewModel
 
 
             status_login = CheckValidLogin();
+            //status_login = true;
             if (status_login == false)
             {
                 status_login = OpenLdap(Username, Password);
@@ -43,7 +44,7 @@ namespace API_AUDIT_WPI.ViewModel
             {
 
                 var data_user = db.VW_KARYAWAN_ALLs.Where(x => x.EMPLOYEE_ID == nrp).SingleOrDefault();
-                status = true;
+                //status = true;
                 //if (data_user.DSTRCT_CODE == Jobsite || data_user.DSTRCT_CODE == "KPHO")
                 //{
                 //    status = true;
@@ -52,6 +53,14 @@ namespace API_AUDIT_WPI.ViewModel
                 //{
                 //    status = false;
                 //}
+                if (data_user.DSTRCT_CODE != null)
+                {
+                    status = true;
+                }
+                else
+                {
+                    status = false;
+                }
             }
 
             return status;
@@ -67,7 +76,7 @@ namespace API_AUDIT_WPI.ViewModel
             try
             {
                 var ldap = new LdapAuthentication("LDAP://KPPMINING:389");
-                //stat = ldap.IsAuthenticated("KPPMINING", Username, Password);
+                stat = ldap.IsAuthenticated("KPPMINING", Username, Password);
                 stat = true;
             }
             catch (Exception)

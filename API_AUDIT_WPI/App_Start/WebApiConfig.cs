@@ -14,7 +14,9 @@ namespace API_AUDIT_WPI
             // Configure Web API to use only bearer token authentication.
             //config.SuppressDefaultHostAuthentication();
             //config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
             config.MessageHandlers.Add(new CorsHandler());
+            //config.MessageHandlers.Add(new CustomCorsHandler());
             // Web API configuration and services
 
             // Web API routes

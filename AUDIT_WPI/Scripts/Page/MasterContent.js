@@ -73,7 +73,8 @@ function submitContent() {
     formData.append('attachmentFile', attachmentFile);
 
     $.ajax({
-        url: $("#web_link").val() + "/api/Master/Insert_Content", //URI
+        //url: $("#web_link").val() + "/api/Master/Insert_Content", //URI
+        url: "/Master/Insert_Content", //URI
         data: formData,
         /*dataType: "json",*/
         type: "POST",
@@ -142,7 +143,8 @@ function deleteContent(id) {
         if (n.value == true) {
             debugger
             $.ajax({
-                url: $("#web_link").val() + "/api/Master/Delete_Content/" + id, //URI
+                //url: $("#web_link").val() + "/api/Master/Delete_Content/" + id, //URI
+                url: "/Master/Delete_Content/" + id, //URI
                 type: "POST",
                 success: function (data) {
                     if (data.Remarks == true) {

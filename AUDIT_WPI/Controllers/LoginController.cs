@@ -31,7 +31,7 @@ namespace AUDIT_WPI.Controllers
             }
             var dataUser = db.VW_KARYAWAN_ALLs.Where(a => a.EMPLOYEE_ID == nrp).FirstOrDefault();
             var dataRole = db.TBL_M_USERs.Where(a => a.Username == nrp).FirstOrDefault();
-            var dataRoledakun = db.TBL_M_ROLEs.Where(a => a.ID == dataRole.ID_Role).FirstOrDefault();
+            //var dataRoledakun = db.TBL_M_ROLEs.Where(a => a.ID == dataRole.ID_Role).FirstOrDefault();
 
             if (dataRole != null)
             {
@@ -54,7 +54,7 @@ namespace AUDIT_WPI.Controllers
             }
             else
             {
-                return new JsonResult() { Data = new { Remarks = false, Message = "Maaf anda tidak memiliki akses ke AUDIT-WPI" }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                return new JsonResult() { Data = new { Remarks = false, Message = "Maaf anda tidak memiliki akses ke Web" }, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
             }
 
         }
