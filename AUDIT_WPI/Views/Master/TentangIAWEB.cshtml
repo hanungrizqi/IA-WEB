@@ -7,7 +7,90 @@
 
 <h2 class="content-heading">About IA Dept</h2>
 
-<div class="block block-rounded block-link-shadow">
+<div class="row">
+    <div class="col-md-6">
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">
+                <h3 class="block-title">PDF Content <small>Insert Content</small></h3>
+                <div class="block-options">
+                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
+                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="pinned_toggle">
+                        <i class="si si-pin"></i>
+                    </button>
+                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
+                </div>
+            </div>
+            <div class="block-content">
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label" for="txt_nmContent">Name Content</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control form-control-sm " id="txt_nmContent" name="txt_nmContent">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label" for="txt_attach">Attachment</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="file" accept=".pdf" id="txt_attach">
+                    </div>
+                </div>
+            </div>
+            <div class="block-content block-content-full block-content-sm bg-body-light fs-sm">
+                <span style="font-size : 12px">*Mohon input salah satu content (PDF/Link)</span>
+                <div class="block-options justify-content-center">
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm btn-success" onclick="submitContent()">
+                                <i class="fa fa-check-circle opacity-50 me-1"></i> Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="block block-rounded">
+            <div class="block-header block-header-default">
+                <h3 class="block-title">Link Content <small>Insert Content</small></h3>
+                <div class="block-options">
+                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="fullscreen_toggle"></button>
+                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="pinned_toggle">
+                        <i class="si si-pin"></i>
+                    </button>
+                    <button type="button" class="btn-block-option" data-toggle="block-option" data-action="content_toggle"></button>
+                </div>
+            </div>
+            <div class="block-content">
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label" for="txt_LinknmContent">Name Content</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control form-control-sm " id="txt_LinknmContent" name="txt_LinknmContent">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label" for="txt_linkContent">Link Content</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" type="text" id="txt_linkContent">
+                    </div>
+                </div>
+            </div>
+            <div class="block-content block-content-full block-content-sm bg-body-light fs-sm">
+                <span style="font-size : 12px">*Mohon input salah satu content (PDF/Link)</span>
+                <div class="block-options justify-content-center">
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm btn-success" onclick="submitLinkContent()">
+                                <i class="fa fa-check-circle opacity-50 me-1"></i> Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="block block-rounded block-link-shadow">
     <div class="block-header block-header-default">
         <h3 class="block-title">Form Content <small>Insert New Content</small></h3>
     </div>
@@ -41,7 +124,7 @@
             </div>
         </div>
     </div>
-</div>
+</div>*@
 
 <div class="block block-rounded block-link-shadow">
     <div class="block-header block-header-default">

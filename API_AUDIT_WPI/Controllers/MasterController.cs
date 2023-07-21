@@ -461,6 +461,25 @@ namespace API_AUDIT_WPI.Controllers
         }
 
         [HttpPost]
+        [Route("Create_Link_Content")]
+        public IHttpActionResult Create_Link_Content(TBL_R_TENTANG_IA_WEB param)
+        {
+            try
+            {
+                TBL_R_TENTANG_IA_WEB tbl = new TBL_R_TENTANG_IA_WEB();
+                tbl.NAME_CONTENT = param.NAME_CONTENT;
+                tbl.PATH_CONTENT = param.PATH_CONTENT;
+                db.TBL_R_TENTANG_IA_WEBs.InsertOnSubmit(tbl);
+                db.SubmitChanges();
+                return Ok(new { Remarks = true });
+            }
+            catch (Exception e)
+            {
+                return Ok(new { Remarks = false, Message = e });
+            }
+        }
+
+        [HttpPost]
         [Route("Update_Publikasi")]
         public IHttpActionResult Update_Publikasi(TBL_R_PUBLIKASI_LAYANAN param)
         {

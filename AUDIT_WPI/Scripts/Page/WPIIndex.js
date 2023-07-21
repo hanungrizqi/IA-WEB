@@ -1,28 +1,6 @@
 ﻿
 $(document).ready(function () {
     loadSliderImages();
-    //$(document).ready(function () {
-    //    var contentContainer = $("#contentContainer");
-
-    //    $.ajax({
-    //        url: $("#web_link").val() + "/api/Master/GetTentangIAData",
-    //        type: "GET",
-    //        success: function (data) {
-    //            var content = "";
-    //            console.log(data);
-    //            for (var i = 0; i < data.length; i++) {
-    //                var item = data[i];
-    //                //content += '<a class="link-fx text-white" href="' + item.PATH_CONTENT + '">' + item.NAME_CONTENT + '</a><br/>';
-    //                content += '<a class="link-fx text-white" href="' + item.PATH_CONTENT + '" target="_blank">' + item.NAME_CONTENT + '</a><br/>';
-    //            }
-    //            contentContainer.html(content);
-    //        },
-    //        error: function (xhr) {
-    //            console.log(xhr.responseText);
-    //            contentContainer.html("Failed to load data.");
-    //        }
-    //    });
-    //});
     loadTentang();
     loadPublikasi();
 });
@@ -61,33 +39,8 @@ function loadSliderImages() {
     });
 }
 
-function loadTentang() {
-    var contentContainer = $("#contentContainer");
-
-    $.ajax({
-        url: $("#web_link").val() + "/api/Master/GetTentangIAData",
-        type: "GET",
-        success: function (data) {
-            var content = "";
-            console.log(data);
-            for (var i = 0; i < data.length; i++) {
-                var item = data[i];
-                //content += '<a class="link-fx text-white" href="' + item.PATH_CONTENT + '" target="_blank">' + item.NAME_CONTENT + '</a><br/>';
-                content += '<a class="link-fx text-white" href="javascript:void(0)" onclick="showPDFPopup(\'' + item.PATH_CONTENT + '\')">' + item.NAME_CONTENT + '</a><br/>';
-                //content += '<a class="link-fx text-white" href="/Master/GetTentangIAData?id=' + item.PATH_CONTENT + '">' + item.PATH_CONTENT + '</a>';
-            }
-            contentContainer.html(content);
-        },
-        error: function (xhr) {
-            console.log(xhr.responseText);
-            contentContainer.html("Failed to load data.");
-        }
-    });
-}
-
 //function loadTentang() {
 //    var contentContainer = $("#contentContainer");
-
 //    $.ajax({
 //        url: $("#web_link").val() + "/api/Master/GetTentangIAData",
 //        type: "GET",
@@ -96,33 +49,45 @@ function loadTentang() {
 //            console.log(data);
 //            for (var i = 0; i < data.length; i++) {
 //                var item = data[i];
-//                //content += '<a class="link-fx text-white" href="' + item.PATH_CONTENT + '" target="_blank" download>' + item.NAME_CONTENT + '</a><br/>';
-//                content +=
-//                    '<a class="link-fx text-white" href="' +
-//                    item.PATH_CONTENT +
-//                    '" target="_blank">' +
-//                    item.NAME_CONTENT +
-//                    "</a><br/>";
-
-//                // Add PDF viewer for PDF content
-//                content +=
-//                    '<div id="adobe-dc-view-' +
-//                    i +
-//                    '"></div><script>(function(){var urlToPDF="' +
-//                    item.PATH_CONTENT +
-//                    '";var viewerOptions={embedMode:"FULL_WINDOW",defaultViewMode:"FIT_WIDTH",showDownloadPDF:false,showPrintPDF:false,showLeftHandPanel:true,showAnnotationTools:false};document.addEventListener("adobe_dc_view_sdk.ready",function(){fetch(urlToPDF).then(function(e){return e.blob()}).then(function(e){var t=new AdobeDC.View({clientId:"664497ea18234f0592a12ec3255b9882",divId:"adobe-dc-view-' +
-//                    i +
-//                    '"});t.previewFile({content:{promise:Promise.resolve(e.arrayBuffer())},metaData:{fileName:urlToPDF.split("/").slice(-1)[0]}})},viewerOptions)});(function(){if("function"!=typeof Blob.arrayBuffer){Blob.prototype.arrayBuffer=myArrayBuffer}function myArrayBuffer(){return new Promise(function(e){var t=new FileReader;t.onload=function(){e(t.result)},t.readAsArrayBuffer(this)})}})();})();</script>';
+//                content += '<a class="link-fx text-black" href="javascript:void(0)" onclick="showPDFPopup(\'' + item.PATH_CONTENT + '\')">' + item.NAME_CONTENT + '</a><br/>';
 //            }
 //            contentContainer.html(content);
 //        },
 //        error: function (xhr) {
 //            console.log(xhr.responseText);
 //            contentContainer.html("Failed to load data.");
-//        },
+//        }
 //    });
 //}
 
+function loadTentang() {
+    var contentContainer = $("#contentContainer");
+    $.ajax({
+        url: $("#web_link").val() + "/api/Master/GetTentangIAData",
+        type: "GET",
+        success: function (data) {
+            var content = "";
+            console.log(data);
+            for (var i = 0; i < data.length; i++) {
+                var item = data[i];
+                var link = item.PATH_CONTENT;
+                var target = "";
+
+                if (link.startsWith("http://") || link.startsWith("https://") || link.startsWith("www.")) {
+                    target = 'target="_blank"';
+                    content += '<a class="link-fx text-black" href="' + link + '" ' + target + '>' + item.NAME_CONTENT + '</a><br/>';
+                } else {
+                    content += '<a class="link-fx text-black" href="javascript:void(0)" onclick="showPDFPopup(\'' + link + '\')">' + item.NAME_CONTENT + '</a><br/>';
+                }
+            }
+            contentContainer.html(content);
+        },
+        error: function (xhr) {
+            console.log(xhr.responseText);
+            contentContainer.html("Gagal memuat data.");
+        }
+    });
+}
 
 function loadPublikasi() {
     var publikasiLayananContainer = $("#publikasiLayananContainer");
@@ -135,7 +100,7 @@ function loadPublikasi() {
             console.log(data);
             for (var i = 0; i < data.length; i++) {
                 var item = data[i];
-                content += '<a class="link-fx text-white" href="' + item.LINK_APP + '" target="_blank">' + item.NAME_APP + '</a><br/>';
+                content += '<a class="link-fx text-black" href="' + item.LINK_APP + '" target="_blank">' + item.NAME_APP + '</a><br/>';
             }
 
             publikasiLayananContainer.html(content);
@@ -147,10 +112,7 @@ function loadPublikasi() {
     });
 }
 
-
 function showPDFPopup(path) {
-    
-
     Swal.fire({
         /*title: 'PDF Viewer',*/
         html: '<div id="pdfViewerContainer"></div>',
@@ -204,31 +166,3 @@ function enableContextMenu() {
         e.preventDefault();
     });
 }
-
-//function showPDFPopup(urlToPDF) {
-//    debugger
-//    var viewerOptions = {
-//        embedMode: "FULL_WINDOW",
-//        defaultViewMode: "FIT_WIDTH",
-//        showDownloadPDF: false,
-//        showPrintPDF: false,
-//        showLeftHandPanel: true,
-//        showAnnotationTools: false,
-//    };
-
-//    document.addEventListener("adobe_dc_view_sdk.ready", function () {
-//        var adobeDCView = new AdobeDC.View({
-//            clientId: "664497ea18234f0592a12ec3255b9882",
-//            divId: "adobe-dc-view",
-//        });
-//        adobeDCView.previewFile(
-//            {
-//                content: { promise: Promise.resolve(urlToPDF) }, // Pass the URL directly as the content
-//                metaData: {
-//                    fileName: urlToPDF.split("/").slice(-1)[0],
-//                },
-//            },
-//            viewerOptions
-//        );
-//    });
-//}

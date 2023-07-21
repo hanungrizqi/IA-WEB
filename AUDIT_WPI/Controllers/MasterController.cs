@@ -126,38 +126,47 @@ namespace AUDIT_WPI.Controllers
             try
             {
                 var data = db.TBL_R_TENTANG_IA_WEBs.Where(a => a.ID == id).FirstOrDefault();
-
-                // Menghapus file dari folder
-                if (!string.IsNullOrEmpty(data.PATH_CONTENT))
+                //edit 2023/07/21 dev014
+                if (!string.IsNullOrEmpty(data.PATH_CONTENT) && (data.PATH_CONTENT.StartsWith("http://") || data.PATH_CONTENT.StartsWith("https://")))
                 {
-                    //string filePath = HttpContext.Current.Server.MapPath(data.PATH_CONTENT);
-                    string virtualPath = data.PATH_CONTENT;
-                    string baseImagePath = System.Web.HttpContext.Current.Server.MapPath("~/Content/ContentFile/");
-                    string imagePath = Path.Combine(baseImagePath, Path.GetFileName(virtualPath));
-                    imagePath = Uri.UnescapeDataString(imagePath);
-                    if (System.IO.File.Exists(imagePath)) 
-                    //if (File.Exists(imagePath)) 
+                    db.TBL_R_TENTANG_IA_WEBs.DeleteOnSubmit(data);
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    // Menghapus file dari folder
+                    if (!string.IsNullOrEmpty(data.PATH_CONTENT))
                     {
-                        FileAttributes attributes = System.IO.File.GetAttributes(imagePath);
-                        bool isHidden = (attributes & FileAttributes.Hidden) == FileAttributes.Hidden;
-
-                        if (isHidden)
+                        //string filePath = HttpContext.Current.Server.MapPath(data.PATH_CONTENT);
+                        string virtualPath = data.PATH_CONTENT;
+                        string baseImagePath = System.Web.HttpContext.Current.Server.MapPath("~/Content/ContentFile/");
+                        string imagePath = Path.Combine(baseImagePath, Path.GetFileName(virtualPath));
+                        imagePath = Uri.UnescapeDataString(imagePath);
+                        if (System.IO.File.Exists(imagePath))
+                        //if (File.Exists(imagePath)) 
                         {
-                            System.IO.File.Delete(imagePath);
+                            FileAttributes attributes = System.IO.File.GetAttributes(imagePath);
+                            bool isHidden = (attributes & FileAttributes.Hidden) == FileAttributes.Hidden;
+
+                            if (isHidden)
+                            {
+                                System.IO.File.Delete(imagePath);
+                            }
+                            else
+                            {
+                                //return BadRequest("The file is not hidden.");
+                                System.IO.File.Delete(imagePath);
+                            }
                         }
                         else
                         {
-                            //return BadRequest("The file is not hidden.");
-                            System.IO.File.Delete(imagePath);
+                            return (ActionResult)NotFound();
                         }
                     }
-                    else
-                    {
-                        return (ActionResult)NotFound();
-                    }
+                    db.TBL_R_TENTANG_IA_WEBs.DeleteOnSubmit(data);
+                    db.SubmitChanges();
                 }
-                db.TBL_R_TENTANG_IA_WEBs.DeleteOnSubmit(data);
-                db.SubmitChanges();
+                
                 return Json(new { Remarks = true });
             }
             catch (Exception e)
