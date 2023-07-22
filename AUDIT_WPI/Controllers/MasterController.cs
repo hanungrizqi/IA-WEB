@@ -127,7 +127,7 @@ namespace AUDIT_WPI.Controllers
             {
                 var data = db.TBL_R_TENTANG_IA_WEBs.Where(a => a.ID == id).FirstOrDefault();
                 //edit 2023/07/21 dev014
-                if (!string.IsNullOrEmpty(data.PATH_CONTENT) && (data.PATH_CONTENT.StartsWith("http://") || data.PATH_CONTENT.StartsWith("https://")))
+                if (!string.IsNullOrEmpty(data.PATH_CONTENT) && (data.PATH_CONTENT.StartsWith("http://") || data.PATH_CONTENT.StartsWith("https://") || data.PATH_CONTENT.StartsWith("https://")))
                 {
                     db.TBL_R_TENTANG_IA_WEBs.DeleteOnSubmit(data);
                     db.SubmitChanges();
@@ -188,6 +188,129 @@ namespace AUDIT_WPI.Controllers
         private ActionResult BadRequest(string v)
         {
             throw new NotImplementedException();
+        }
+
+        public ActionResult Insert_Publikasi()
+        {
+            try
+            {
+                var httpRequest = HttpContext.Request;
+                var files = httpRequest.Files;
+                var attachmentUrls = new List<string>();
+                var nameContent = HttpContext.Request.Form["nameContent"];
+
+                if (files.Count > 0)
+                {
+                    foreach (string file in files)
+                    {
+                        var postedFile = files[file];
+                        var fileName = postedFile.FileName;
+                        var folderPath = HttpContext.Server.MapPath("~/Content/PublikasiFile");
+
+                        if (!Directory.Exists(folderPath))
+                        {
+                            Directory.CreateDirectory(folderPath);
+                        }
+
+                        var filePath = Path.Combine(folderPath, fileName);
+                        if (System.IO.File.Exists(filePath))
+                        {
+                            return Json(new { Remarks = false });
+                        }
+
+                        // Simpan file dan atur atribut menjadi FileAttributes.Normal
+                        using (var fileStream = System.IO.File.Create(filePath))
+                        {
+                            postedFile.InputStream.CopyTo(fileStream);
+                            fileStream.Flush();
+                        }
+                        System.IO.File.SetAttributes(filePath, FileAttributes.Normal);
+
+                        var attachmentUrl = Url.Content("~/Content/PublikasiFile/" + fileName);
+                        attachmentUrls.Add(attachmentUrl);
+                    }
+
+                    using (var dbContext = new AUDIT_WPIDataContext())
+                    {
+                        foreach (var attachmentUrl in attachmentUrls)
+                        {
+                            var content = new TBL_R_PUBLIKASI_LAYANAN
+                            {
+                                NAME_APP = nameContent,
+                                LINK_APP = attachmentUrl,
+                            };
+
+                            dbContext.TBL_R_PUBLIKASI_LAYANANs.InsertOnSubmit(content);
+                        }
+
+                        dbContext.SubmitChanges();
+                    }
+
+                    return Json(new { Remarks = true, AttachmentUrls = attachmentUrls });
+                }
+                else
+                {
+                    return BadRequest("No file found in the request.");
+                }
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+            }
+        }
+
+        public ActionResult Delete_Publikasi(int id)
+        {
+            try
+            {
+                var data = db.TBL_R_PUBLIKASI_LAYANANs.Where(a => a.ID == id).FirstOrDefault();
+                //edit 2023/07/21 dev014
+                if (!string.IsNullOrEmpty(data.LINK_APP) && (data.LINK_APP.StartsWith("http://") || data.LINK_APP.StartsWith("https://") || data.LINK_APP.StartsWith("www.")))
+                {
+                    db.TBL_R_PUBLIKASI_LAYANANs.DeleteOnSubmit(data);
+                    db.SubmitChanges();
+                }
+                else
+                {
+                    // Menghapus file dari folder
+                    if (!string.IsNullOrEmpty(data.LINK_APP))
+                    {
+                        //string filePath = HttpContext.Current.Server.MapPath(data.PATH_CONTENT);
+                        string virtualPath = data.LINK_APP;
+                        string baseImagePath = System.Web.HttpContext.Current.Server.MapPath("~/Content/PublikasiFile/");
+                        string imagePath = Path.Combine(baseImagePath, Path.GetFileName(virtualPath));
+                        imagePath = Uri.UnescapeDataString(imagePath);
+                        if (System.IO.File.Exists(imagePath))
+                        //if (File.Exists(imagePath)) 
+                        {
+                            FileAttributes attributes = System.IO.File.GetAttributes(imagePath);
+                            bool isHidden = (attributes & FileAttributes.Hidden) == FileAttributes.Hidden;
+
+                            if (isHidden)
+                            {
+                                System.IO.File.Delete(imagePath);
+                            }
+                            else
+                            {
+                                //return BadRequest("The file is not hidden.");
+                                System.IO.File.Delete(imagePath);
+                            }
+                        }
+                        else
+                        {
+                            return (ActionResult)NotFound();
+                        }
+                    }
+                    db.TBL_R_PUBLIKASI_LAYANANs.DeleteOnSubmit(data);
+                    db.SubmitChanges();
+                }
+
+                return Json(new { Remarks = true });
+            }
+            catch (Exception e)
+            {
+                return Json(new { Remarks = false, Message = e });
+            }
         }
     }
 }

@@ -99,8 +99,18 @@ function loadPublikasi() {
             var content = "";
             console.log(data);
             for (var i = 0; i < data.length; i++) {
+                debugger
                 var item = data[i];
-                content += '<a class="link-fx text-black" href="' + item.LINK_APP + '" target="_blank">' + item.NAME_APP + '</a><br/>';
+                var link = item.LINK_APP;
+                var target = "";
+
+                if (link.startsWith("http://") || link.startsWith("https://") || link.startsWith("www.")) {
+                    target = 'target="_blank"';
+                    content += '<a class="link-fx text-black" href="' + link + '" ' + target + '>' + item.NAME_APP + '</a><br/>';
+                } else {
+                    content += '<a class="link-fx text-black" href="javascript:void(0)" onclick="showPDFPopup(\'' + link + '\')">' + item.NAME_APP + '</a><br/>';
+                }
+                /*content += '<a class="link-fx text-black" href="' + item.LINK_APP + '" target="_blank">' + item.NAME_APP + '</a><br/>';*/
             }
 
             publikasiLayananContainer.html(content);
