@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="content-heading">Publikasi &Aacute; Layanan</h2>
+<h2 class="content-heading">Publikasi Internal Audit &amp; Risk Management</h2>
 <div class="block block-rounded">
     <div class="block-header block-header-default">
         <h3 class="block-title">
-            Table Publikasi &Aacute; Layanan <small>Set All References</small>
+            Table Publikasi &amp; Layanan <small>Set All References</small>
         </h3>
         <div class="block-options">
             <div class="block-options-item">
@@ -25,7 +25,7 @@
                 <tr>
                     <th>NO</th>
                     <th>NAME APP</th>
-                    <th>LINK APP</th>
+                    <th>LINK/PATH APP</th>
                     <th>ACTION</th>
                 </tr>
             </thead>
@@ -55,8 +55,14 @@
                 </div>
                 <div class="block-content fs-sm">
                     <div class="mb-4">
-                        <label class="form-label" for="txt_linkApp">LINK APP</label>
-                        <input type="text" class="form-control" id="txt_linkApp" name="txt_linkApp">
+                        <label class="form-label">LINK APP</label>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="chk_linkApp" name="chk_linkApp">
+                            <label class="form-check-label" for="chk_linkApp">Upload Files</label>
+                        </div>
+                        <div id="linkAppContainer">
+                            <input type="text" class="form-control" id="txt_linkApp" name="txt_linkApp">
+                        </div>
                     </div>
                 </div>
                 <div class="block-content block-content-full block-content-sm text-end border-top">
@@ -71,6 +77,7 @@
         </div>
     </div>
 </div>
+
 
 @*Modal Update source*@
 <div class="modal" id="modal_update" tabindex="-1" aria-labelledby="modal-normal" aria-modal="true" role="dialog">
@@ -111,3 +118,19 @@
     </div>
 </div>
 @*END Modal Update source*@
+
+@*<script>
+    function toggleLinkAppInput() {
+        debugger
+        var checkbox = document.getElementById('chk_linkApp');
+        var linkAppContainer = document.getElementById('linkAppContainer');
+
+        if (checkbox.checked) {
+            linkAppContainer.innerHTML = '<input type="file" class="form-control" accept=".pdf" id="file_linkApp" name="file_linkApp">';
+        } else {
+            linkAppContainer.innerHTML = '<input type="text" class="form-control" id="txt_linkApp" name="txt_linkApp">';
+        }
+    }
+
+    document.getElementById('chk_linkApp').addEventListener('change', toggleLinkAppInput);
+</script>*@

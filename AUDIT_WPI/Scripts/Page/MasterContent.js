@@ -81,6 +81,9 @@ function submitContent() {
         /*contentType: "application/json; charset=utf-8",*/
         contentType: false, // Hapus pengaturan contentType
         processData: false, // Tidak memproses data secara otomatis
+        beforeSend: function () {
+            $("#overlay").show();
+        },
         success: function (data) {
             if (data.Remarks == true) {
                 Swal.fire({
@@ -117,6 +120,7 @@ function submitContent() {
         },
         error: function (xhr) {
             alert(xhr.responseText);
+            $("#overlay").hide();
         }
     })
 }
@@ -177,6 +181,9 @@ function submitLinkContent() {
         dataType: "json",
         type: "POST",
         contentType: "application/json; charset=utf-8",
+        beforeSend: function () {
+            $("#overlay").show();
+        },
         success: function (data) {
             if (data.Remarks == true) {
                 debugger
@@ -204,6 +211,7 @@ function submitLinkContent() {
         },
         error: function (xhr) {
             alert(xhr.responseText);
+            $("#overlay").hide();
         }
     })
 }

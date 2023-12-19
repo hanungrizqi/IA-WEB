@@ -97,6 +97,9 @@ function insertApp() {
             type: "POST",
             contentType: false,
             processData: false,
+            beforeSend: function () {
+                $("#overlay").show();
+            },
             success: function (data) {
                 if (data.Remarks == true) {
                     Swal.fire({
@@ -133,6 +136,7 @@ function insertApp() {
             },
             error: function (xhr) {
                 alert(xhr.responseText);
+                $("#overlay").hide();
             }
         })
     }
@@ -148,16 +152,25 @@ function insertApp() {
             dataType: "json",
             type: "POST",
             contentType: "application/json; charset=utf-8",
+            beforeSend: function () {
+                $("#overlay").show();
+            },
             success: function (data) {
                 if (data.Remarks == true) {
-                    Swal.fire(
-                        'Saved!',
-                        'Data has been Saved.',
-                        'success'
-                    );
+                    Swal.fire({
+                        title: 'Saved',
+                        text: "Data has been Saved.",
+                        icon: 'success',
+                        confirmButtonColor: '#3085d6',
+                        confirmButtonText: 'OK',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = "/Master/PublikasiLayanan";
+                        }
+                    });
                     $('#modal_insert').modal('hide');
-                    $('#txt_source').val('')
-                    table.ajax.reload();
                 } if (data.Remarks == false) {
                     Swal.fire(
                         'Error!',
@@ -169,6 +182,7 @@ function insertApp() {
             },
             error: function (xhr) {
                 alert(xhr.responseText);
+                $("#overlay").hide();
             }
         })
     }

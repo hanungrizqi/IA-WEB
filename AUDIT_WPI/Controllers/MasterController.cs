@@ -150,7 +150,7 @@ namespace AUDIT_WPI.Controllers
 
                             if (isHidden)
                             {
-                                System.IO.File.Delete(imagePath);
+                                System.IO.File.Delete(imagePath); 
                             }
                             else
                             {

@@ -7,7 +7,7 @@
 
 <h2 class="content-heading">About Internal Audit &amp; Risk Management</h2>
 
-<div class="row">
+@*<div class="row">
     <div class="col-md-6">
         <div class="block block-rounded">
             <div class="block-header block-header-default">
@@ -87,6 +87,82 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>*@
+
+@*other desain*@
+<div class="block block-rounded overflow-hidden">
+    <ul class="nav nav-tabs nav-tabs-block" role="tablist">
+        <li class="nav-item">
+            <button class="nav-link active" id="btabs-animated-slideup-home-tab" data-bs-toggle="tab" data-bs-target="#btabs-animated-slideup-home" role="tab" aria-controls="btabs-animated-slideup-home" aria-selected="true">PDF</button>
+        </li>
+        <li class="nav-item">
+            <button class="nav-link" id="btabs-animated-slideup-profile-tab" data-bs-toggle="tab" data-bs-target="#btabs-animated-slideup-profile" role="tab" aria-controls="btabs-animated-slideup-profile" aria-selected="false">Link</button>
+        </li>
+    </ul>
+    <div class="block-content tab-content overflow-hidden">
+        @*pdf content*@
+        <div class="tab-pane fade fade-up show active" id="btabs-animated-slideup-home" role="tabpanel" aria-labelledby="btabs-animated-slideup-home-tab">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" for="txt_nmContent">Name Content</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control form-control-sm " id="txt_nmContent" name="txt_nmContent">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label" for="txt_attach">Attachment</label>
+                <div class="col-sm-8">
+                    <input class="form-control" type="file" accept=".pdf" id="txt_attach">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <span style="font-size : 11px">*Mohon input salah satu content (PDF/Link)</span>
+            </div>
+            <div class="block-content-full block-content-sm bg-body-extra-light fs-sm">
+                <div class="block-options justify-content-center">
+                    <div class="row text-center">
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-sm btn-success" onclick="submitContent()">
+                                <i class="fa fa-check-circle opacity-50 me-1"></i> Submit PDF
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3">
+            </div>
+        </div>
+        @*link content*@
+    <div class="tab-pane fade fade-up" id="btabs-animated-slideup-profile" role="tabpanel" aria-labelledby="btabs-animated-slideup-profile-tab">
+        <div class="row mb-3">
+            <label class="col-sm-4 col-form-label" for="txt_LinknmContent">Name Content</label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control form-control-sm " id="txt_LinknmContent" name="txt_LinknmContent">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-4 col-form-label" for="txt_linkContent">Link Content</label>
+            <div class="col-sm-8">
+                <input class="form-control" type="text" id="txt_linkContent">
+            </div>
+        </div>
+        <div class="row mb-3">
+            <span style="font-size : 11px">*Mohon input salah satu content (PDF/Link)</span>
+        </div>
+        <div class="block-content-full block-content-sm bg-body-extra-light fs-sm">
+            <div class="block-options justify-content-center">
+                <div class="row text-center">
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-sm btn-success" onclick="submitLinkContent()">
+                            <i class="fa fa-check-circle opacity-50 me-1"></i> Submit Link
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-3">
+        </div>
+    </div>
     </div>
 </div>
 

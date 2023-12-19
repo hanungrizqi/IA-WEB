@@ -81,6 +81,9 @@ function submitContent() {
         /*contentType: "application/json; charset=utf-8",*/
         contentType: false, // Hapus pengaturan contentType
         processData: false, // Tidak memproses data secara otomatis
+        beforeSend: function () {
+            $("#overlay").show();
+        },
         success: function (data) {
             if (data.Remarks == true) {
                 Swal.fire({
@@ -117,6 +120,7 @@ function submitContent() {
         },
         error: function (xhr) {
             alert(xhr.responseText);
+            $("#overlay").hide();
         }
     })
 }
@@ -145,7 +149,7 @@ function deleteContent(id) {
             $.ajax({
                 //url: $("#web_link").val() + "/api/Master/Delete_Content/" + id, //URI
                 url: "/Master/Delete_Content/" + id, //URI
-                type: "POST",
+                type: "DELETE",
                 success: function (data) {
                     if (data.Remarks == true) {
                         Swal.fire("Deleted!", "Your Data has been deleted.", "success");
@@ -163,4 +167,51 @@ function deleteContent(id) {
             Swal.fire("Cancelled", "Your Data is safe", "error");
         }
     });
+}
+
+function submitLinkContent() {
+    debugger
+    let obj = new Object
+    obj.NAME_CONTENT = $('#txt_LinknmContent').val();
+    obj.PATH_CONTENT = $('#txt_linkContent').val();
+
+    $.ajax({
+        url: $("#web_link").val() + "/api/Master/Create_Link_Content", //URI
+        data: JSON.stringify(obj),
+        dataType: "json",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        beforeSend: function () {
+            $("#overlay").show();
+        },
+        success: function (data) {
+            if (data.Remarks == true) {
+                debugger
+                Swal.fire({
+                    title: 'Saved',
+                    text: "Data has been Saved.",
+                    icon: 'success',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'OK',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/Master/TentangIAWEB";
+                    }
+                });
+            } if (data.Remarks == false) {
+                Swal.fire(
+                    'Error!',
+                    'Message : ' + data.Message,
+                    'error'
+                );
+            }
+
+        },
+        error: function (xhr) {
+            alert(xhr.responseText);
+            $("#overlay").hide();
+        }
+    })
 }

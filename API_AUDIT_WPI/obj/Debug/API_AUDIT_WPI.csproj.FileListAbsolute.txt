@@ -51,11 +51,14 @@ D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\roslyn\vbc.rsp
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\roslyn\VBCSCompiler.exe
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\roslyn\VBCSCompiler.exe.config
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\Antlr3.Runtime.dll
+D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\LdapAuthentication.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\Microsoft.Web.Infrastructure.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\Newtonsoft.Json.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Net.Http.Formatting.dll
+D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Cors.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Helpers.dll
+D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Http.Cors.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Http.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Http.WebHost.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Mvc.dll
@@ -65,6 +68,7 @@ D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.WebPa
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.WebPages.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.WebPages.Razor.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\WebGrease.dll
+D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Http.Cors.xml
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\Newtonsoft.Json.xml
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Net.Http.Formatting.xml
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Helpers.xml
@@ -83,7 +87,3 @@ D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\obj\Debug\API_AUDIT_
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\obj\Debug\API_AUDIT_WPI.csproj.CopyComplete
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\obj\Debug\API_AUDIT_WPI.dll
 D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\obj\Debug\API_AUDIT_WPI.pdb
-D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\LdapAuthentication.dll
-D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Cors.dll
-D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Http.Cors.dll
-D:\Backup Project\web-page-intranet\AUDIT_WPI\API_AUDIT_WPI\bin\System.Web.Http.Cors.xml
